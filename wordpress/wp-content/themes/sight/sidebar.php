@@ -7,9 +7,9 @@
         );
     ?>
 
-    <?php //the_widget( 'GetConnected', 'title=Get Connected', $widget_args); ?>
+    <!-- <?php //the_widget( 'GetConnected', 'title=Get Connected', $widget_args); ?> -->
 
-    <?php the_widget( 'Recentposts_thumbnail', 'title=Recent posts', $widget_args); ?>
+    <!-- <?php the_widget( 'Recentposts_thumbnail', 'title=Recent posts', $widget_args); ?> -->
 
 
     <!-- <div class="widget sponsors"> -->

@@ -1,8 +1,9 @@
 <?php get_header(); ?>
 
 <div class="content-title">
-    Latest entries
-    <a href="javascript: void(0);" id="mode"<?php if ($_COOKIE['mode'] == 'grid') echo ' class="flip"'; ?>></a>
+
+    <!-- Latest entries -->
+    <!-- <a href="javascript: void(0);" id="mode"<?php if ($_COOKIE['mode'] == 'grid') echo ' class="flip"'; ?>></a> -->
 </div>
 
 <?php query_posts(array(
