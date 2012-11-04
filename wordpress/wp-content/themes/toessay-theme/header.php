@@ -35,6 +35,8 @@
         <div class="wrapper">
 
             <div class="header clear">
+                <!-- BEN: TODO: add typographic logo, tagline here -->
+
                 <div class="logo">
                     <a href="<?php bloginfo('home'); ?>"><img src="<?php echo (get_option('logo_url')) ? get_option('logo_url') : get_bloginfo('template_url') . '/images/logo.png' ?>" alt="<?php bloginfo('name'); ?>"/></a>
                 </div>
