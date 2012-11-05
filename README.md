@@ -11,5 +11,7 @@ On the server, pull and wipe the db:
 
     cd db
     git pull
-    mysql -uroot -ppassword wp-toessay-rimu < wp-toessay-local.sql
-
+    sed "s/http:\/\/toessay.co.uk.ben/http:\/\/benimmanuel.com\/obi/g" wp-toessay-local.sql > temp.sql
+    mysql -uroot -ppassword wp-toessay-rimu < temp.sql
+    rm -rf temp.sql
+    
