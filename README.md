@@ -23,6 +23,19 @@ Ensure
 * Apache virtual host: FollowSymLinks option enabled, FileInfo directives allowed (e.g. AllowOverride FileInfo or AllowOverride All)
 * .htaccess file is present and writeable
 
+    # BEGIN WordPress
+    <IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^index\.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.php [L]
+    </IfModule>
+    # END WordPress
+
+
+
 ## wp-admin
 
 Make sure the following are visible (from "post" page, click on "screen options" on top bar):
