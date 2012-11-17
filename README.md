@@ -16,6 +16,10 @@ On the server, pull and wipe the db:
     rm -rf temp.sql
 
 
+## wp-config.php
+
+In /wordpress/, copy `wp-config.backup.php` to `wp-config.php` and set the db credentials.
+
 ## Permalinks
 
 Ensure
