@@ -21,7 +21,10 @@ On the server, pull and wipe the db:
 Ensure
 * Apache mod_rewrite enabled
 * Apache virtual host: FollowSymLinks option enabled, FileInfo directives allowed (e.g. AllowOverride FileInfo or AllowOverride All)
-* .htaccess file is present and writeable
+* .htaccess file is present within /wordpress/ and writeable. Below is an example. If url is not root, (i.e. bla.com/bla/),
+set the RewriteBase and RewriteRule appropriately:
+
+###
 
     # BEGIN WordPress
     <IfModule mod_rewrite.c>
@@ -33,8 +36,6 @@ Ensure
     RewriteRule . /index.php [L]
     </IfModule>
     # END WordPress
-
-
 
 ## wp-admin
 
