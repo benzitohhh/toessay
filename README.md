@@ -19,10 +19,11 @@ On the server, pull and wipe the db:
 ## Permalinks
 
 Ensure
+* site directories are readable by Apache. i.e. `sudo chgrp -R www-data wordpress`
 * Apache mod_rewrite enabled
-* Apache virtual host: FollowSymLinks option enabled, FileInfo directives allowed (e.g. AllowOverride FileInfo or AllowOverride All)
+* Apache virtual host: `FollowSymLinks` option enabled, `FileInfo` directives allowed (e.g. `AllowOverride FileInfo` or `AllowOverride All`)
 * .htaccess file is present within /wordpress/ and writeable. Below is an example. If url is not root, (i.e. bla.com/bla/),
-set the RewriteBase and RewriteRule appropriately:
+set the `RewriteBase` and `RewriteRule` appropriately:
 
 ###
 
