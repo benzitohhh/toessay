@@ -23,7 +23,7 @@ In /wordpress/, copy `wp-config.backup.php` to `wp-config.php` and set the db cr
 ## Permalinks
 
 Ensure
-* site directories are readable by Apache. i.e. `sudo chgrp -R www-data wordpress`
+* site directories (and any simlinks - i.e. in /var/www/ ) are readable by Apache. i.e. `sudo chgrp -R www-data wordpress`
 * Apache mod_rewrite enabled
 * Apache virtual host: `FollowSymLinks` option enabled, `FileInfo` directives allowed (e.g. `AllowOverride FileInfo` or `AllowOverride All`)
 * .htaccess file is present within /wordpress/ and writeable. Below is an example. If url is not root, (i.e. bla.com/bla/),
