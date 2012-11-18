@@ -744,7 +744,7 @@ add_filter('next_posts_link_attributes', 'next_posts_attributes');
 
 
 /* ============================================================= */
-/* rank column for admin pages: TODO: move to a plugin
+/* rank column for admin pages: TODO: move to a plugin           */
 /* ============================================================= */
 
 function toessay_get_rank($post_ID) {
@@ -787,5 +787,23 @@ function toessay_rank_column_orderby( $vars ) {
     return $vars;
 }
 add_filter( 'request', 'toessay_rank_column_orderby' );
+
+
+
+
+/* ============================================================= */
+/* category meta helpers: TODO: move to a plugin                 */
+/* ============================================================= */
+
+function toessay_get_most_recent_published_category() {
+    $categories = get_categories( array('orderby'=>'id', 'order'=>'desc') );
+    foreach ($categories as $cat) { 
+        $isPublished = get_terms_meta($cat->cat_ID, 'published');
+        if ($isPublished) {
+            return $cat;
+        }
+    }
+    return NULL;
+}
 
 ?>

@@ -1,21 +1,25 @@
-<?php get_header(); ?>
+<?php
+$cat = toessay_get_most_recent_published_category();
+if ($cat) {
+    // redirect
+    $url = get_bloginfo('url') . "/" . $cat->slug . "/";
+    header('Location: ' . $url) ;
+}
 
-<div class="content-title">
+get_header();
+?>
 
-    <!-- Latest entries -->
-    <!-- <a href="javascript: void(0);" id="mode"<?php if ($_COOKIE['mode'] == 'grid') echo ' class="flip"'; ?>></a> -->
-</div>
+<?php 
+/* query_posts(array( */
+/*     'post__not_in' => $exl_posts, */
+/*     'paged' => $paged, */
+/* )); */
+?>
 
-<?php query_posts(array(
-        'post__not_in' => $exl_posts,
-        'paged' => $paged,
-    )
-); ?>
+<?php //get_template_part('loop'); ?>
 
-<?php get_template_part('loop'); ?>
+<?php //wp_reset_query(); ?>
 
-<?php wp_reset_query(); ?>
-
-<?php get_template_part('pagination'); ?>
+<?php //get_template_part('pagination'); ?>
 
 <?php get_footer(); ?>
