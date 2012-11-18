@@ -1,0 +1,9 @@
+#!/bin/bash
+ssh ben@benimmanuel.com \
+   "\
+   cd ~/src/toessay/db; \
+   git pull; \
+   sed 's/http:\/\/toessay.co.uk.ben/http:\/\/benimmanuel.com\/toe/g' wp-toessay-local.sql > temp.sql; \
+   mysql -uroot -ppassword wp-toessay-rimu < temp.sql; \
+   rm -rf temp.sql; \
+   ";
