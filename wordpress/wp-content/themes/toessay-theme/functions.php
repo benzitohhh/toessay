@@ -693,7 +693,7 @@ function seo_title() {
     if (is_tax()) {
         $curr_tax = get_taxonomy(get_query_var('taxonomy'));
         $curr_term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy')); # current term data
-        # if it's term
+        # if it is a term
         if (!empty($curr_term)) {
             $newtitle = $curr_tax->label . $sep . $curr_term->name;
         } else {
@@ -741,5 +741,51 @@ function next_posts_attributes(){
     return 'class="nextpostslink"';
 }
 add_filter('next_posts_link_attributes', 'next_posts_attributes');
+
+
+/* ============================================================= */
+/* rank column for admin pages: TODO: move to a plugin
+/* ============================================================= */
+
+function toessay_get_rank($post_ID) {
+    $custom_fields = get_post_custom($post_ID);
+    $ranks = $custom_fields['rank'];
+    return $ranks ? $ranks[0] : NULL;
+}  
+
+function toessay_columns_head($columns) {  
+    $columns['rank'] = 'Rank';  
+    return $columns;
+}  
+
+function toessay_columns_content($column_name, $post_ID) {  
+    if ($column_name == 'rank') {  
+        $rank = toessay_get_rank($post_ID);  
+        if ($rank) {  
+            echo $rank;  
+        }
+    }  
+}  
+
+add_filter('manage_posts_columns', 'toessay_columns_head');  
+add_action('manage_posts_custom_column', 'toessay_columns_content', 10, 2); 
+
+// Register the column as sortable
+function toessay_register_sortable($columns) {
+    $columns['rank'] = 'rank';
+    return $columns;
+}
+add_filter( "manage_edit-post_sortable_columns", 'toessay_register_sortable' );
+
+function toessay_rank_column_orderby( $vars ) {
+    if ( isset( $vars['orderby'] ) && 'rank' == $vars['orderby'] ) {
+        $vars = array_merge( $vars, array(
+            'meta_key' => 'rank',
+            'orderby' => 'meta_value_num'
+        ) );
+    }
+    return $vars;
+}
+add_filter( 'request', 'toessay_rank_column_orderby' );
 
 ?>
