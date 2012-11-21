@@ -835,8 +835,6 @@ function toessay_filter_category_template($template){
         $templates[] = "contents.php";
         // add more templates here if required
     }
-    error_log(print_r(debug_backtrace(), true));
-    
     return ( locate_template($templates) != false ) ? locate_template($templates) : $template;
 }
 add_filter('category_template', 'toessay_filter_category_template');
