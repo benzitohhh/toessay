@@ -788,9 +788,6 @@ function toessay_rank_column_orderby( $vars ) {
 }
 add_filter( 'request', 'toessay_rank_column_orderby' );
 
-
-
-
 /* ============================================================= */
 /* category meta helpers: TODO: move to a plugin                 */
 /* ============================================================= */
@@ -805,5 +802,44 @@ function toessay_get_most_recent_published_category() {
     }
     return NULL;
 }
+
+/* ============================================================= */
+/* setup "/<issue>/contents" rewrite and template                */
+/* ============================================================= */
+
+function toessay_contents_queryvars( $qvars ) {
+    $qvars[] = 'contents';
+    return $qvars;
+}
+add_filter('query_vars', 'toessay_contents_queryvars' );
+
+function toessay_contents_rewrite_rule( $rules ) {
+    $newrules['([^/]*)/contents/?$'] = 'index.php?category_name=$matches[1]&contents=1';
+    return $newrules + $rules;
+}
+add_filter( 'rewrite_rules_array','toessay_contents_rewrite_rule' );
+
+function toessay_flush_rules(){
+    $rules = get_option( 'rewrite_rules' );
+    if ( ! isset( $rules['([^/]*)/contents/?$'] )   ) {
+        global $wp_rewrite;
+        $wp_rewrite->flush_rules();
+    }
+}
+add_action( 'init','toessay_flush_rules' );
+
+function toessay_filter_category_template($template){
+    $object = get_queried_object();
+    $templates = array();
+    if(get_query_var('contents')) {
+        $templates[] = "contents.php";
+        // add more templates here if required
+    }
+    error_log(print_r(debug_backtrace(), true));
+    
+    return ( locate_template($templates) != false ) ? locate_template($templates) : $template;
+}
+add_filter('category_template', 'toessay_filter_category_template');
+
 
 ?>
