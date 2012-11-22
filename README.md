@@ -59,4 +59,5 @@ To create new category metadata fields (i.e. "title", "date", "picture", etc..):
 
 ## ASK WE!
 * Titles - can we assume always less than 25 chars? Otherwise we need to specify a "short-title" field (i.e. for extra links on font page)
+* Images - width/height 100-150px ok?
 
