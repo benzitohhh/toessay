@@ -840,4 +840,13 @@ function toessay_filter_category_template($template){
 add_filter('category_template', 'toessay_filter_category_template');
 
 
+/* ============================================================= */
+/* short name                                                    */
+/* ============================================================= */
+function toessay_short_name($fullName) {
+    $arr = explode(' ', $fullName);
+    $arr[0] = $arr[0]{0} . ".";
+    return implode(' ', $arr);
+}
+
 ?>
