@@ -38,6 +38,4 @@
         <?php endwhile; ?>
     <?php endif; ?>
 
-<?php comments_template(); ?>
-
 <?php get_footer(); ?>

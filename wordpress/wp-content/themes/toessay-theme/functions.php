@@ -804,26 +804,39 @@ function toessay_get_most_recent_published_category() {
 }
 
 /* ============================================================= */
-/* setup "/<issue>/contents" rewrite and template                */
+/* setup category subpage urls
+/*   "/<issue-X>/YYY" -> /index.php?category_name=<issue-X>&YYY=1*/
+/*                         and loads template YYY.php            */
 /* ============================================================= */
-
-function toessay_contents_queryvars( $qvars ) {
-    $qvars[] = 'contents';
+$CAT_SUBPAGES = array('contents', 'about', 'contact');
+function toessay_queryvars_filter( $qvars ) {
+    global $CAT_SUBPAGES;
+    foreach ($CAT_SUBPAGES as $p) {
+        $qvars[] = $p;
+    }
     return $qvars;
 }
-add_filter('query_vars', 'toessay_contents_queryvars' );
+add_filter('query_vars', 'toessay_queryvars_filter' );
 
 function toessay_contents_rewrite_rule( $rules ) {
-    $newrules['([^/]*)/contents/?$'] = 'index.php?category_name=$matches[1]&contents=1';
+    global $CAT_SUBPAGES;
+    $newrules = array();
+    foreach ($CAT_SUBPAGES as $p) {
+        $newrules['([^/]*)/' . $p . '/?$'] = 'index.php?category_name=$matches[1]&' . $p . '=1';        
+    }
     return $newrules + $rules;
 }
 add_filter( 'rewrite_rules_array','toessay_contents_rewrite_rule' );
 
 function toessay_flush_rules(){
     $rules = get_option( 'rewrite_rules' );
-    if ( ! isset( $rules['([^/]*)/contents/?$'] )   ) {
-        global $wp_rewrite;
-        $wp_rewrite->flush_rules();
+    global $CAT_SUBPAGES;
+    foreach ($CAT_SUBPAGES as $p) {
+        if ( ! isset( $rules['([^/]*)/' . $p . '/?$'] )   ) {
+            global $wp_rewrite;
+            $wp_rewrite->flush_rules();
+            break;
+        }
     }
 }
 add_action( 'init','toessay_flush_rules' );
@@ -831,17 +844,20 @@ add_action( 'init','toessay_flush_rules' );
 function toessay_filter_category_template($template){
     $object = get_queried_object();
     $templates = array();
-    if(get_query_var('contents')) {
-        $templates[] = "contents.php";
-        // add more templates here if required
+    global $CAT_SUBPAGES;
+    foreach ($CAT_SUBPAGES as $p) {
+        if(get_query_var($p)) {
+            $templates[] = $p . '.php';
+        }
     }
+    // add more templates here if required
     return ( locate_template($templates) != false ) ? locate_template($templates) : $template;
 }
 add_filter('category_template', 'toessay_filter_category_template');
 
 
 /* ============================================================= */
-/* short name                                                    */
+/* short name      i.e. "Barack Obama" -> "B. Obama"             */
 /* ============================================================= */
 function toessay_short_name($fullName) {
     $arr = explode(' ', $fullName);

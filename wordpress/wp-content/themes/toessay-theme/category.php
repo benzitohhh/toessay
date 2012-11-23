@@ -40,12 +40,6 @@ $N = count($ranked_posts);
 
 ?>
 
-<div class="content-title">
-    <?php $post = $posts[0]; // Hack. Set $post so that the_date() works.
-          printf(__('%s'), single_cat_title('', false)); ?>
-    <a href="javascript: void(0);" id="mode"<?php if ($_COOKIE['mode'] == 'grid') echo ' class="flip"'; ?>></a>
-</div>
-
 <?php if ($ranked_posts): ?>
 
     <div id="loop" class="<?php if ($_COOKIE['mode'] == 'grid') echo 'grid'; else echo 'list'; ?> clear">
