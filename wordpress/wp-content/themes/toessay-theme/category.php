@@ -59,46 +59,50 @@ $N = count($ranked_posts);
 
         <?php if ($ranked_posts[1]): ?>
             <div class="subhero">
-                <?php for ($i = 1; $i < 3 && $i < $N; $i++): ?>
-                    <?php $post = $ranked_posts[$i]; ?>
-                    <?php setup_postdata($post); ?>
-                    <div <?php post_class('post clear'); ?> id="post_<?php the_ID(); ?>">
-                        <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-                        <div class="post-meta">
-                            <span class="post-author"><a
-                                href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="Posts by <?php the_author(); ?>"><?php the_author(); ?></a></span>
+                <div class="row">
+                    <?php for ($i = 1; $i < 3 && $i < $N; $i++): ?>
+                        <?php $post = $ranked_posts[$i]; ?>
+                        <?php setup_postdata($post); ?>
+                        <div <?php post_class('post clear col' . ($i-1)%2 ); ?> id="post_<?php the_ID(); ?>">
+                            <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+                            <div class="post-meta">
+                                <span class="post-author"><a
+                                    href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="Posts by <?php the_author(); ?>"><?php the_author(); ?></a></span>
+                            </div>
+                            <div class="post-content"><?php if (function_exists('smart_excerpt')) smart_excerpt(get_the_excerpt(), 55); ?> <a href="<?php the_permalink() ?>">More</a></div>
                         </div>
-                        <div class="post-content"><?php if (function_exists('smart_excerpt')) smart_excerpt(get_the_excerpt(), 55); ?> <a href="<?php the_permalink() ?>">More</a></div>
-                    </div>
-                <?php endfor;?>
+                    <?php endfor;?>
+                </div>
             </div>
         <?php endif;?>
 
         <?php if ($ranked_posts[3]): ?>
             <div class="morelinks">
-                <div class="col1">
-                    <?php for ($i = 3; $i < 7 && $i < $N; $i++): ?>
-                        <?php $post = $ranked_posts[$i]; ?>
-                        <?php setup_postdata($post); ?>
-                        <div <?php post_class('post clear'); ?> id="post_<?php the_ID(); ?>">
-                                <span class="post-author"><a
-                                    href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="Posts by <?php the_author(); ?>"><?php echo toessay_short_name(get_the_author()); ?></a></span>
-                                <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-                                <a href="<?php the_permalink() ?>"> More</a>
-                        </div>
-                    <?php endfor;?>
-                </div>
-                <div class="col2">
-                    <?php for ($i = 3; $i < 7 && $i < $N; $i++): ?>
-                        <?php $post = $ranked_posts[$i]; ?>
-                        <?php setup_postdata($post); ?>
-                        <div <?php post_class('post clear'); ?> id="post_<?php the_ID(); ?>">
-                                <span class="post-author"><a
-                                    href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="Posts by <?php the_author(); ?>"><?php echo toessay_short_name(get_the_author()); ?></a></span>
-                                <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-                                <a href="<?php the_permalink() ?>"> More</a>
-                        </div>
-                    <?php endfor;?>                    
+                <div class="row">
+                    <div class="col0">
+                        <?php for ($i = 3; $i < 7 && $i < $N; $i++): ?>
+                            <?php $post = $ranked_posts[$i]; ?>
+                            <?php setup_postdata($post); ?>
+                            <div <?php post_class('post clear'); ?> id="post_<?php the_ID(); ?>">
+                                    <span class="post-author"><a
+                                        href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="Posts by <?php the_author(); ?>"><?php echo toessay_short_name(get_the_author()); ?></a></span>
+                                    <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+                                    <a href="<?php the_permalink() ?>"> More</a>
+                            </div>
+                        <?php endfor;?>
+                    </div>
+                    <div class="col1">
+                        <?php for ($i = 7; $i < 11 && $i < $N; $i++): ?>
+                            <?php $post = $ranked_posts[$i]; ?>
+                            <?php setup_postdata($post); ?>
+                            <div <?php post_class('post clear'); ?> id="post_<?php the_ID(); ?>">
+                                    <span class="post-author"><a
+                                        href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="Posts by <?php the_author(); ?>"><?php echo toessay_short_name(get_the_author()); ?></a></span>
+                                    <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+                                    <a href="<?php the_permalink() ?>"> More</a>
+                            </div>
+                        <?php endfor;?>                    
+                    </div>
                 </div>
             </div>
         <?php endif;?>

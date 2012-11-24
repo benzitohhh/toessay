@@ -35,7 +35,7 @@ body {font: 100%/1.4 TimesNewRoman, "Times New Roman", Times, Baskerville, Georg
 
 /*** Header ***/
 
-.header {margin-bottom: 0;}
+.header {margin-bottom: 1.4em;}
 
 .logo {float: left; width: 40%; margin-left: 20%;}
 .logo a {text-decoration: none; color: inherit;}
@@ -123,6 +123,18 @@ a.dd_hover:hover {text-decoration: none !important;}
 .list .post .post-meta span, .list .post .post-meta a {color: #000; text-decoration: none; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; font-style: normal;}
 .list .post .post-meta a:hover {text-decoration: underline;}
 .post-author {text-transform: uppercase;}
+
+/*** Hero ***/
+
+
+/*** Subhero ***/
+.subhero .row {overflow: auto; border-bottom: 1px solid #D9D9D9; margin-bottom: 1.4em; padding-bottom: 1.4em;}
+.subhero .row .post {width: 44%; float: left; border: none; margin: 0; padding: 0;}
+.subhero .row .post.col1 {float: right;}
+
+
+/*** more links ***/
+.morelinks {clear: both;}
 
 .grid {padding: 12px 0 0 12px;}
 .grid .post {width: 154px; height: 154px; background-color: #f5f5f5; padding: 18px; float: left; margin: 19px 0 0 19px; position: relative; overflow: hidden; cursor: pointer;}
@@ -323,8 +335,9 @@ p#cancel-comment-reply {float: right; margin: 0;}
 .sponsors .widget-body img {margin-bottom: 20px;}
 
 /*** Issuebar ***/
-.issuebar {width: 20%; float: left; padding-left: 1em;}
-.issuebar img {display: block;}
+.issuebar {width: 20%; float: left; padding: 0 1em;}
+.issuebar img {display: block; margin: 0 auto;}
+.issuebar p {text-align: center;}
 
 /*** Footer ***/
 
