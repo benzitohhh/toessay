@@ -70,7 +70,7 @@
 
             <div class="nav">
                 <ul id="dd" class="dd">
-                    <li class="menu-item">
+                    <li class="menu-item first">
                         <a href="<?php echo $cat_url; ?>/about/">About TOE</a>
                     </li>
                     <li class="menu-item">

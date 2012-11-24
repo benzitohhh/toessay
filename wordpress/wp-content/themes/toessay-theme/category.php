@@ -48,10 +48,9 @@ $N = count($ranked_posts);
             <?php $post = $ranked_posts[0]; ?>
             <?php setup_postdata($post); ?>
             <div <?php post_class('post clear'); ?> id="post_<?php the_ID(); ?>">
-                <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+                <h2><?php the_title(); ?></h2>
                 <div class="post-meta">
-                    <span class="post-author"><a
-                        href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="Posts by <?php the_author(); ?>"><?php the_author(); ?></a></span>
+                    <span class="post-author"><?php the_author(); ?></span>
                 </div>
                 <div class="post-content"><?php if (function_exists('smart_excerpt')) smart_excerpt(get_the_excerpt(), 55); ?> <a href="<?php the_permalink() ?>">More</a></div>
             </div>
@@ -64,10 +63,9 @@ $N = count($ranked_posts);
                         <?php $post = $ranked_posts[$i]; ?>
                         <?php setup_postdata($post); ?>
                         <div <?php post_class('post clear col' . ($i-1)%2 ); ?> id="post_<?php the_ID(); ?>">
-                            <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+                            <h2><?php the_title(); ?></h2>
                             <div class="post-meta">
-                                <span class="post-author"><a
-                                    href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="Posts by <?php the_author(); ?>"><?php the_author(); ?></a></span>
+                                <span class="post-author"><?php the_author(); ?></span>
                             </div>
                             <div class="post-content"><?php if (function_exists('smart_excerpt')) smart_excerpt(get_the_excerpt(), 55); ?> <a href="<?php the_permalink() ?>">More</a></div>
                         </div>
@@ -79,26 +77,24 @@ $N = count($ranked_posts);
         <?php if ($ranked_posts[3]): ?>
             <div class="morelinks">
                 <div class="row">
-                    <div class="col0">
+                    <div class="col col0">
                         <?php for ($i = 3; $i < 7 && $i < $N; $i++): ?>
                             <?php $post = $ranked_posts[$i]; ?>
                             <?php setup_postdata($post); ?>
                             <div <?php post_class('post clear'); ?> id="post_<?php the_ID(); ?>">
-                                    <span class="post-author"><a
-                                        href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="Posts by <?php the_author(); ?>"><?php echo toessay_short_name(get_the_author()); ?></a></span>
-                                    <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+                                    <span class="post-author"><?php echo toessay_short_name(get_the_author()); ?></span>
+                                    <span><?php the_title(); ?></span>
                                     <a href="<?php the_permalink() ?>"> More</a>
                             </div>
                         <?php endfor;?>
                     </div>
-                    <div class="col1">
+                    <div class="col col1">
                         <?php for ($i = 7; $i < 11 && $i < $N; $i++): ?>
                             <?php $post = $ranked_posts[$i]; ?>
                             <?php setup_postdata($post); ?>
                             <div <?php post_class('post clear'); ?> id="post_<?php the_ID(); ?>">
-                                    <span class="post-author"><a
-                                        href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="Posts by <?php the_author(); ?>"><?php echo toessay_short_name(get_the_author()); ?></a></span>
-                                    <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+                                    <span class="post-author"><?php echo toessay_short_name(get_the_author()); ?></span>
+                                    <span><?php the_title(); ?></span>
                                     <a href="<?php the_permalink() ?>"> More</a>
                             </div>
                         <?php endfor;?>                    
