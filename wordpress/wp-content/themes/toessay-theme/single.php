@@ -15,13 +15,14 @@
             <div <?php post_class('single clear'); ?> id="post_<?php the_ID(); ?>">
                 <div class="post-meta">
                     <h1><?php the_title(); ?></h1>
-                    <span class="post-author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" title="Posts by <?php the_author(); ?>"><?php the_author(); ?></a></span>
+                    <span class="post-author"><?php the_author(); ?></span>
                     <?php edit_post_link( __( 'Edit entry'), '&bull; '); ?>
                 </div>
                 <div class="post-content"><?php the_content(); ?></div>
                 <div class="post-footer"><?php the_tags(__('<strong>Tags: </strong>'), ', '); ?></div>
             </div>
             <div class="post-navigation clear">
+
                 <?php
                     $prev_post = get_adjacent_post(false, '', true);
                     $next_post = get_adjacent_post(false, '', false); ?>
@@ -33,6 +34,7 @@
                     <?php endif; ?>
                 <div class="line"></div>
             </div>
+
         </div>
 
         <?php endwhile; ?>
