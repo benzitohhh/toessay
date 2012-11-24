@@ -324,6 +324,7 @@ p#cancel-comment-reply {float: right; margin: 0;}
 
 /*** Issuebar ***/
 .issuebar {width: 20%; float: left; padding-left: 1em;}
+.issuebar img {display: block;}
 
 /*** Footer ***/
 
