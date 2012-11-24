@@ -35,7 +35,7 @@ body {font: 100%/1.4 TimesNewRoman, "Times New Roman", Times, Baskerville, Georg
 
 /*** Header ***/
 
-.header {margin-bottom: 1.4em;}
+.header {margin-bottom: 0;}
 
 .logo {float: left; width: 40%; margin-left: 20%;}
 .logo a {text-decoration: none; color: inherit;}
@@ -58,8 +58,8 @@ body {font: 100%/1.4 TimesNewRoman, "Times New Roman", Times, Baskerville, Georg
 /*** Navigation ***/
 
 .nav {border: 1px solid #d9d9d9;}
-.dd {height: 2.8em;}
-.dd li {float: left; display: block; height: 100%; width: 20%; border-left: 1px solid #d9d9d9; padding: 11px 1em; 7px; font-size: 100%; text-transform: none; text-align: center;}
+.dd {height: 1.4em;}
+.dd li {float: left; display: block; height: 100%; width: 20%; border-left: 1px solid #d9d9d9; padding: 0 1em; font-size: 100%; text-transform: none; text-align: center;}
 .dd li.last {border-right: 1px solid #d9d9d9; }
 .dd li.floatright {float:right; background: #DADADA;}
 .dd li a {color: #000; text-decoration: none; display: block; white-space: nowrap;}
@@ -110,7 +110,7 @@ a.dd_hover:hover {text-decoration: none !important;}
 #mode {display: block; width: 37px; height: 14px; background: url("images/mode.png") 0 0 no-repeat; position: absolute; bottom: 14px; right: 0;}
 .flip {background-position: 0 100% !important;}
 
-.list .post {border-bottom: 1px solid #d9d9d9; margin-bottom: 1.4em;}
+.list .post {border-bottom: 1px solid #d9d9d9; margin-bottom: 1.4em; padding-bottom: 1.4em;}
 .list .post .thumb img {float: left; margin: 0 30px 30px 0; width: 290px; height: 290px;}
 .list .post a {color: #000;}
 .list .post .post-category {font-size: 100%; color: #d9d9d9; text-transform: uppercase; margin-bottom: 11px;}
@@ -186,7 +186,7 @@ a.dd_hover:hover {text-decoration: none !important;}
 .di:hover {background-position: -32px -15px;}
 .su:hover {background-position: -48px -15px;}
 
-.post-content {margin-bottom: 1.4em;}
+.post-content {}
 .post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5 {color: #000; font-weight: normal; font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif; margin: 15px 0;}
 .post-content h1 {font-size: 100%;}
 .post-content h2 {font-size: 100%;}
