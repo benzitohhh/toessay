@@ -23,8 +23,6 @@ table{border-collapse:collapse;border-spacing:0;}
 
 /*** Main ***/
 
-/* Ben: previously body font-size was 62.5% */
-
 body {font: 100%/1.4 TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif; padding: 1.4em 0 2.8em;}
 .clear:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
 .left {float: left;}
@@ -178,9 +176,15 @@ a.dd_hover:hover {text-decoration: none !important;}
 #pagination .loading {background: url("images/loading.gif") 240px 9px no-repeat; color: #555;}
 #pagination .loading:hover {background-color: transparent !important; cursor: default;}
 
+/*** contents page ***/
+.contents .title {margin-bottom: 2.8em;}
+.contents .title .page {font-weight: bold; font-size: 1em; line-height: 1em; padding-bottom: 0em;}
+.contents .title .issue {border-bottom: 1px solid; padding-bottom: 0.7em;}
+.contents .post {margin: 0 0 1.4em; padding: 0; border: none;}
+
 .entry {}
 .entry .post {}
-.entry .post-meta {font-size: 100%; font-style: italic; color: #aaa9a9; margin-bottom: 2.8em;}
+.entry .post-meta {font-size: 100%; font-style: italic; color: #aaa9a9; margin-bottom: 1.4em;}
 .entry .post-meta h1 {color: black; font-size: 100%; font-weight: bold; font-style: normal; }
 .entry .post-meta span, .entry .post-meta a {color: #000; text-decoration: none; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; font-style: normal; border-bottom: 1px solid; padding-bottom: 0.7em;}
 .entry .post-meta a:hover {text-decoration: underline;}

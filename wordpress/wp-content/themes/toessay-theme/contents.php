@@ -1,15 +1,29 @@
 <?php get_header(); ?>
 
-<div class="content-title">
-contents page yay!!!
-    <?php $post = $posts[0]; // Hack. Set $post so that the_date() works.
-          printf(__('%s'), single_cat_title('', false)); ?>
+<?php setup_ranked_postdata(); ?>
 
-    <a href="javascript: void(0);" id="mode"<?php if ($_COOKIE['mode'] == 'grid') echo ' class="flip"'; ?>></a>
+<div class="contents">
+    
+    <div class="title">
+        <p class="page">Contents</p>
+        <span class="issue"><?php printf(__('%s'), single_cat_title('', false)); ?></span>
+    </div>
+
+    <?php if ($ranked_posts): ?>
+    <div id="loop" class="list clear">
+        <ul class="postlist">
+            <?php foreach ($ranked_posts as $post): ?>  
+            <?php setup_postdata($post); ?>
+            <li <?php post_class('post clear'); ?> id="post_<?php the_ID(); ?>">
+                <span class="post-author"><?php echo toessay_short_name(get_the_author()); ?>:</span>
+                <span><?php the_title(); ?></span>
+                <a href="<?php the_permalink() ?>"> Read</a>                    
+            </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <?php endif; ?>
+
 </div>
-
-<?php get_template_part('loop'); ?>
-
-<?php get_template_part('pagination'); ?>
 
 <?php get_footer(); ?>

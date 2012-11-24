@@ -1,48 +1,10 @@
-
-
-
 <?php get_header(); ?>
 
-
-<?php
-global $query_string, $wpdb, $post;
-
-// get ALL posts
-$posts = query_posts($query_string.'&showposts=-1');
-
-// get ranked posts
-$cat_id = get_queried_object()->term_id;
-$querystr = "
-    SELECT * FROM $wpdb->posts
-    LEFT JOIN $wpdb->postmeta ON($wpdb->posts.ID = $wpdb->postmeta.post_id)
-    LEFT JOIN $wpdb->term_relationships ON($wpdb->posts.ID = $wpdb->term_relationships.object_id)
-    LEFT JOIN $wpdb->term_taxonomy ON($wpdb->term_relationships.term_taxonomy_id = $wpdb->term_taxonomy.term_taxonomy_id)
-    LEFT JOIN $wpdb->terms ON($wpdb->term_taxonomy.term_id = $wpdb->terms.term_id)
-    WHERE $wpdb->terms.term_id = $cat_id
-    AND $wpdb->term_taxonomy.taxonomy = 'category'
-    AND $wpdb->posts.post_status = 'publish'
-    AND $wpdb->posts.post_type = 'post'
-    AND $wpdb->postmeta.meta_key = 'rank'
-    ORDER BY $wpdb->postmeta.meta_value+0 ASC
-";
-$ranked_posts = $wpdb->get_results($querystr, OBJECT);
-
-// push unranked posts into ranked
-foreach ($ranked_posts as $post) {
-    $ids[] = $post->ID;
-}
-foreach ($posts as $post) {
-    if (!in_array($post->ID, $ids)) {
-        $ranked_posts[] = $post;
-    }
-}
-$N = count($ranked_posts);
-
-?>
+<?php setup_ranked_postdata(); ?>
 
 <?php if ($ranked_posts): ?>
 
-    <div id="loop" class="<?php if ($_COOKIE['mode'] == 'grid') echo 'grid'; else echo 'list'; ?> clear">
+    <div id="loop" class="list clear">
     
         <div class="hero">
             <?php $post = $ranked_posts[0]; ?>
@@ -82,7 +44,7 @@ $N = count($ranked_posts);
                             <?php $post = $ranked_posts[$i]; ?>
                             <?php setup_postdata($post); ?>
                             <div <?php post_class('post clear'); ?> id="post_<?php the_ID(); ?>">
-                                    <span class="post-author"><?php echo toessay_short_name(get_the_author()); ?></span>
+                                <span class="post-author"><?php echo toessay_short_name(get_the_author()); ?>:</span>
                                     <span><?php the_title(); ?></span>
                                     <a href="<?php the_permalink() ?>"> More</a>
                             </div>
@@ -93,7 +55,7 @@ $N = count($ranked_posts);
                             <?php $post = $ranked_posts[$i]; ?>
                             <?php setup_postdata($post); ?>
                             <div <?php post_class('post clear'); ?> id="post_<?php the_ID(); ?>">
-                                    <span class="post-author"><?php echo toessay_short_name(get_the_author()); ?></span>
+                                <span class="post-author"><?php echo toessay_short_name(get_the_author()); ?>:</span>
                                     <span><?php the_title(); ?></span>
                                     <a href="<?php the_permalink() ?>"> More</a>
                             </div>
