@@ -789,21 +789,6 @@ function toessay_rank_column_orderby( $vars ) {
 add_filter( 'request', 'toessay_rank_column_orderby' );
 
 /* ============================================================= */
-/* category meta helpers: TODO: move to a plugin                 */
-/* ============================================================= */
-
-function toessay_get_most_recent_published_category() {
-    $categories = get_categories( array('orderby'=>'id', 'order'=>'desc') );
-    foreach ($categories as $cat) { 
-        $isPublished = get_terms_meta($cat->cat_ID, 'published');
-        if ($isPublished) {
-            return $cat;
-        }
-    }
-    return NULL;
-}
-
-/* ============================================================= */
 /* setup category subpage urls
 /*   "/<issue-X>/YYY" -> /index.php?category_name=<issue-X>&YYY=1*/
 /*                         and loads template YYY.php            */
@@ -865,6 +850,59 @@ function toessay_short_name($fullName) {
     return implode(' ', $arr);
 }
 
+
+
+/* ============================================================= */
+/* category meta helpers: TODO: move to a plugin                 */
+/* ============================================================= */
+
+function toessay_cats() {
+    global $toessay_cats, $toessay_cats_meta;
+    if (!$toessay_cats) {
+        // lazy load
+        $toessay_cats = get_categories( array('orderby'=>'id', 'order'=>'desc') );
+        $toessay_cats_meta = array();
+        foreach ($toessay_cats as $cat) { 
+            $meta = get_all_terms_meta($cat->term_id);
+            $toessay_cats_meta[$cat->term_id] = $meta;
+        }
+    }
+    return $toessay_cats;
+}
+
+function toessay_cats_meta() {
+    global $toessay_cats, $toessay_cats_meta;
+    if (!$toessay_cats_meta) {
+        toessay_cats();
+    }
+    return $toessay_cats_meta;
+}
+
+function toessay_get_most_recent_published_category() {
+    $cats = toessay_cats();
+    $cats_meta = toessay_cats_meta();
+    foreach ($cats as $cat) {
+        $isPublished = $cats_meta[$cat->term_id]['published'][0];
+        if ($isPublished) {
+            return $cat;
+        }
+    }
+    return NULL;
+}
+
+/*
+  Returns index of the specified cat_id in ordered list of cats
+ */
+function toessay_get_idx($id) {
+    $cats = toessay_cats();
+    foreach ($cats as $idx => $cat) {
+        if ($cat->term_id == $id) {
+            return $idx;
+        }
+    }
+    return NULL;
+}
+
 /* ============================================================= */
 /* setup category meta                                           */
 /* ============================================================= */
@@ -879,16 +917,25 @@ function toessay_setup_category_meta() {
         //use  most recent
         $cat = toessay_get_most_recent_published_category();
     }
-    $toessay_cat = array();
-    $toessay_cat['cat'] = $cat;
-    $toessay_cat['cat_id'] = $cat->term_id;
-    $toessay_cat['cat_name'] = $cat->cat_name;
-    $toessay_cat['cat_meta'] = get_all_terms_meta($cat_id);
-    $toessay_cat['cat_date'] = $cat_meta['date'][0];
-    $toessay_cat['cat_image'] = $cat_meta['image'][0];
-    $toessay_cat['cat_published'] = $cat_meta['published'][0];
-    $toessay_cat['cat_url'] = get_bloginfo('url') . "/" . $cat->slug;
-    return $toessay_cat;
+
+    $cats = toessay_cats();
+    $cats_meta = toessay_cats_meta();
+    $idx = toessay_get_idx($cat->term_id);
+    $next = $cats[$idx - 1];
+    $prev = $cats[$idx + 1];
+    if (!$cats_meta[$next->term_id]['published'][0]) {
+        $next = NULL;
+    }
+    if (!$cats_meta[$prev->term_id]['published'][0]) {
+        $prev = NULL;
+    }
+
+    $arr = array();
+    $arr['cat'] = $cat;
+    $arr['cat_meta'] = $cats_meta[$cat->term_id];
+    $arr['prev'] = $prev;
+    $arr['next'] = $next;
+    return $arr;
 }
 
 /* ============================================================= */
@@ -905,41 +952,48 @@ function toessay_cat() {
 
 function toessay_cat_id() {
     $cat = toessay_cat();
-    $cat = $cat['cat'];
-    return $cat->term_id;
+    return $cat['cat']->term_id;
 }
 
 function toessay_cat_name() {
     $cat = toessay_cat();
-    $cat =  $cat['cat'];
-    return $cat->cat_name;
+    return $cat['cat']->cat_name;
+}
+
+function toessay_get_url($cat) {
+    return get_bloginfo('url') . "/" . $cat->slug;
 }
 
 function toessay_cat_url() {
     $cat = toessay_cat();
-    $cat = $cat['cat'];
-    return get_bloginfo('url') . "/" . $cat->slug;
+    return toessay_get_url($cat['cat']);
+}
+
+function toessay_cat_url_prev() {
+    $cat = toessay_cat();
+    $prev = $cat['prev'];
+    return $prev ? toessay_get_url($prev) : NULL;
+}
+
+function toessay_cat_url_next() {
+    $cat = toessay_cat();
+    $next = $cat['next'];
+    return $next ? toessay_get_url($next) : NULL;
 }
 
 function toessay_cat_date() {
     $cat = toessay_cat();
-    $meta = $cat['cat_meta'];
-    $date = $meta['date'];
-    return $date[0];
+    return $cat['cat_meta']['date'][0];
 }
 
 function toessay_cat_image() {
     $cat = toessay_cat();
-    $meta = $cat['cat_meta'];
-    $image = $meta['image'];
-    return $image[0];
+    return $cat['cat_meta']['image'][0];
 }
 
 function toessay_cat_published() {
     $cat = toessay_cat();
-    $meta = $cat['cat_meta'];
-    $published = $meta['published'];
-    return $published[0];
+    return $cat['cat_meta']['published'][0];
 }
 
 /* ============================================================= */

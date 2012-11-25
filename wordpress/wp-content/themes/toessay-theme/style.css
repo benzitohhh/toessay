@@ -358,9 +358,15 @@ p#cancel-comment-reply {float: right; margin: 0;}
 .sponsors .widget-body img {margin-bottom: 20px;}
 
 /*** Issuebar ***/
-.issuebar {width: 20%; float: left; padding: 0;}
+.issuebar {width: 20%; float: left; padding: 0 1em;}
 .issuebar img {display: block; margin: 0 auto;}
 .issuebar p {text-align: center;}
+.issuebar .issue-nav {width: 60%; margin: 0 auto;}
+.issuebar .issue-nav .link {text-decoration: none; color: black;}
+.issuebar .issue-nav .link span {text-decoration: underline;}
+.issuebar .issue-nav .link.prev {float: left;}
+.issuebar .issue-nav .link.next {float: right;}
+
 
 /*** Footer ***/
 
