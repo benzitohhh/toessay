@@ -28,7 +28,7 @@ body {font: 100%/1.4 TimesNewRoman, "Times New Roman", Times, Baskerville, Georg
 .left {float: left;}
 .right {float: right;}
 
-.wrapper {width: 960px; background: #fff; margin: 0 auto;}
+.wrapper {width: 1100px; background: #fff; margin: 0 auto;}
 #container {padding: 1.4em 0 2.8em;}
 
 /*** Header ***/
@@ -122,19 +122,20 @@ a.dd_hover:hover {text-decoration: none !important;}
 .list .post .post-meta span, .list .post .post-meta a {color: #000; text-decoration: none; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; font-style: normal;}
 .list .post .post-meta a:hover {text-decoration: underline;}
 .post-author {text-transform: uppercase;}
+.post-author.long {display: block;}
 
 /*** Hero ***/
 
 
 /*** Subhero ***/
 .subhero .row {overflow: auto; border-bottom: 1px solid #D9D9D9; margin-bottom: 1.4em; padding-bottom: 1.4em;}
-.subhero .row .post {width: 44%; float: left; border: none; margin: 0; padding: 0;}
+.subhero .row .post {width: 45%; float: left; border: none; margin: 0; padding: 0;}
 .subhero .row .post.col1 {float: right;}
 
 
 /*** more links ***/
 .morelinks {clear: both;}
-.morelinks .col {width: 44%; float: left;}
+.morelinks .col {width: 45%; float: left;}
 .morelinks .col.col1 {float: right;}
 .morelinks .post {border: none; margin: 0; padding: 0;}
 

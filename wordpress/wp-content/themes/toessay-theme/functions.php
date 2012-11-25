@@ -850,7 +850,24 @@ function toessay_short_name($fullName) {
     return implode(' ', $arr);
 }
 
+function toessay_is_too_long($author, $title) {
+    $len = strlen($author) + strlen($title);
+    return $len >= 24;
+}
 
+function to_essay_shorten_title($author, $title) {
+    error_log($author);
+    error_log($title);
+    $len = strlen($author) + strlen($title);
+    error_log("len=" . $len);
+    $aLen = 28 - strlen($author);
+    error_log("aLen=".$aLen);
+    if ($aLen < strLen($title)) {
+        return substr($title, 0, $aLen) . "..";
+    }
+    return $title;
+    
+}
 
 /* ============================================================= */
 /* category meta helpers: TODO: move to a plugin                 */
