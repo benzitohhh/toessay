@@ -177,10 +177,24 @@ a.dd_hover:hover {text-decoration: none !important;}
 #pagination .loading:hover {background-color: transparent !important; cursor: default;}
 
 /*** contents page ***/
-.contents .title {margin-bottom: 2.8em;}
-.contents .title .page {font-weight: bold; font-size: 1em; line-height: 1em; padding-bottom: 0em;}
-.contents .title .issue {border-bottom: 1px solid; padding-bottom: 0.7em;}
-.contents .post {margin: 0 0 1.4em; padding: 0; border: none;}
+.contents-page .title {margin-bottom: 2.8em;}
+.contents-page .title .page {font-weight: normal; font-size: 2em; line-height: 1em; padding-bottom: 0em;}
+.contents-page .title .issue {border-bottom: 1px solid; padding-bottom: 0.7em;}
+.contents-page .post {margin: 0 0 1.4em; padding: 0; border: none;}
+
+/*** contact page ***/
+.contact-page .contact {margin-bottom: 2.8em;}
+.contact-page .title {font-size: 2em; line-height: 1em; margin-bottom: 1.1em}
+.contact-page .title span {border-bottom: 1px solid; padding-bottom: 0.4em;}
+.contact-page a {display: block;}
+.contact-page p {font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; line-height: 1.4em;}
+.contact-page .space-above {margin-top: 1.4em;}
+
+/*** about page ***/
+.about-page h1 {font-weight: normal; font-size: 2em; line-height: 1em; margin-bottom: 1.1em}
+.about-page h1 span {border-bottom: 1px solid; padding-bottom: 0.4em;}
+.about-page p {font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; }
+.about-page .spacer {height: 550px;}
 
 .entry {}
 .entry .post {}

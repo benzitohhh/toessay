@@ -2,7 +2,7 @@
 
 <?php setup_ranked_postdata(); ?>
 
-<div class="contents">
+<div class="contents-page">
     
     <div class="title">
         <p class="page">Contents</p>
