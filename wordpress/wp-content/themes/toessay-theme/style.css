@@ -186,7 +186,7 @@ a.dd_hover:hover {text-decoration: none !important;}
 .contact-page .contact {margin-bottom: 2.8em;}
 .contact-page .title {font-size: 2em; line-height: 1em; margin-bottom: 1.1em}
 .contact-page .title span {border-bottom: 1px solid; padding-bottom: 0.4em;}
-.contact-page a {display: block;}
+.contact-page a {display: block; text-decoration: none;}
 .contact-page p {font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; line-height: 1.4em;}
 .contact-page .space-above {margin-top: 1.4em;}
 
