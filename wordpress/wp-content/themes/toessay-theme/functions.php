@@ -866,6 +866,83 @@ function toessay_short_name($fullName) {
 }
 
 /* ============================================================= */
+/* setup category meta                                           */
+/* ============================================================= */
+function toessay_setup_category_meta() {
+    $cat_id = get_queried_object()->term_id;
+    if ($cat_id) {
+        $cat = get_category($cat_id);
+    } elseif ($cats = get_the_category()) {
+        // get from page
+        $cat = $cats[0];
+    } else {
+        //use  most recent
+        $cat = toessay_get_most_recent_published_category();
+    }
+    $toessay_cat = array();
+    $toessay_cat['cat'] = $cat;
+    $toessay_cat['cat_id'] = $cat->term_id;
+    $toessay_cat['cat_name'] = $cat->cat_name;
+    $toessay_cat['cat_meta'] = get_all_terms_meta($cat_id);
+    $toessay_cat['cat_date'] = $cat_meta['date'][0];
+    $toessay_cat['cat_image'] = $cat_meta['image'][0];
+    $toessay_cat['cat_published'] = $cat_meta['published'][0];
+    $toessay_cat['cat_url'] = get_bloginfo('url') . "/" . $cat->slug;
+    return $toessay_cat;
+}
+
+/* ============================================================= */
+/* get category meta                                             */
+/* ============================================================= */
+function toessay_cat() {
+    global $toessay_cat;
+    if (!$toessay_cat) {
+        // lazy load
+        $toessay_cat = toessay_setup_category_meta();
+    }
+    return $toessay_cat;
+}
+
+function toessay_cat_id() {
+    $cat = toessay_cat();
+    $cat = $cat['cat'];
+    return $cat->term_id;
+}
+
+function toessay_cat_name() {
+    $cat = toessay_cat();
+    $cat =  $cat['cat'];
+    return $cat->cat_name;
+}
+
+function toessay_cat_url() {
+    $cat = toessay_cat();
+    $cat = $cat['cat'];
+    return get_bloginfo('url') . "/" . $cat->slug;
+}
+
+function toessay_cat_date() {
+    $cat = toessay_cat();
+    $meta = $cat['cat_meta'];
+    $date = $meta['date'];
+    return $date[0];
+}
+
+function toessay_cat_image() {
+    $cat = toessay_cat();
+    $meta = $cat['cat_meta'];
+    $image = $meta['image'];
+    return $image[0];
+}
+
+function toessay_cat_published() {
+    $cat = toessay_cat();
+    $meta = $cat['cat_meta'];
+    $published = $meta['published'];
+    return $published[0];
+}
+
+/* ============================================================= */
 /* ranked posts                                                  */
 /* ============================================================= */
 function setup_ranked_postdata() {

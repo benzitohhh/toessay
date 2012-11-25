@@ -48,41 +48,21 @@
             </div>
 
             <!-- <?php wp_nav_menu(array('menu' => 'Navigation', 'theme_location' => 'Navigation', 'depth' => 2, 'container' => 'div', 'container_class' => 'nav', 'menu_class' => 'dd', 'menu_id' => 'dd', 'walker' => new extended_walker())); ?> -->
-            <?php $cat_id = get_queried_object()->term_id; ?>
-            <?php
-                  if ($cat_id) {
-                      $cat = get_category($cat_id);
-                  } elseif ($cats = get_the_category()) {
-                      // get from page
-                      $cat = $cats[0];
-                  } else {
-                      //use  most recent
-                      $cat = toessay_get_most_recent_published_category();
-                  }
-            ?>
-            <?php $cat_id = $cat->term_id; ?>
-            <?php $cat_name = $cat->cat_name; ?>
-            <?php $cat_meta = get_all_terms_meta($cat_id); ?>
-            <?php $cat_date = $cat_meta['date'][0]; ?>
-            <?php $cat_image = $cat_meta['image'][0]; ?>
-            <?php $cat_published = $cat_meta['published'][0]; ?>
-            <?php $cat_url = get_bloginfo('url') . "/" . $cat->slug; ?>
-
             <div class="nav">
                 <ul id="dd" class="dd">
                     <li class="menu-item first">
-                        <a href="<?php echo $cat_url; ?>/about/">About TOE</a>
+                        <a href="<?php echo toessay_cat_url(); ?>/about/">About TOE</a>
                     </li>
                     <li class="menu-item">
-                        <a href="<?php echo $cat_url; ?>/contents/">Contents</a>
+                        <a href="<?php echo toessay_cat_url(); ?>/contents/">Contents</a>
                     </li>
                     <li class="menu-item last">
-                        <a href="<?php echo $cat_url; ?>/contact/">Contact</a>
+                        <a href="<?php echo toessay_cat_url(); ?>/contact/">Contact</a>
                     </li>
 
                     <li class="menu_item floatright">
                         <div class="search">
-                            <form method="get" id="searchform" action="<?php echo $cat_url; ?>">
+                            <form method="get" id="searchform" action="<?php echo toessay_cat_url(); ?>">
                                 <fieldset>
                                     <input name="s" type="text" onfocus="if(this.value=='Search') this.value='';" onblur="if(this.value=='') this.value='Search';" value="Search"></input>
                                     <button type="submit"></button>
