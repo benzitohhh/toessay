@@ -98,7 +98,7 @@ a.dd_hover:hover {text-decoration: none !important;}
 
 /*** Content ***/
 
-#content {width: 60%; float: left; border-left: 1px solid #D9D9D9; border-right: 1px solid #D9D9D9; padding: 0 1.4em 0; min-height: 14em;}
+#content {width: 60%; float: left; border-left: 1px solid #D9D9D9; border-right: 1px solid #D9D9D9; padding: 0 1.4em 0; min-height: 35em;}
 
 .content-title {}
 .content-title a {color: #000; text-decoration: none;}
