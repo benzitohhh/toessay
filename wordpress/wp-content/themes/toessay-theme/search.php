@@ -1,37 +1,29 @@
 <?php get_header(); ?>
 
-<?php if ( have_posts() ) : ?>
-
-    <div class="content-title">
-        Search Result <span>/</span> <?php the_search_query(); ?>
-        <a href="javascript: void(0);" id="mode"<?php if ($_COOKIE['mode'] == 'grid') echo ' class="flip"'; ?>></a>
-    </div>
-
-    <?php get_template_part('loop'); ?>
-
-<?php else : ?>
-
-    <div class="content-title">
-        Your search <strong><?php the_search_query(); ?></strong> did not match any documents
-    </div>
-
-    <div class="entry">
-        <div class="single clear">
-            <div class="post-content">
-                <div class="search">
-                    <form method="get" id="searchform" action="<?php bloginfo('url'); ?>">
-                        <fieldset>
-                            <input name="s" type="text" onfocus="if(this.value=='Search with some different keywords') this.value='';" onblur="if(this.value=='') this.value='Search with some different keywords';" value="Search with some different keywords" />
-                            <button type="submit"></button>
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
+<div class="search-page">
+    <?php if ( have_posts() ) : ?>
+        <div class="title">
+            <p class="page">Search results:</p>
+            <span class="issue">"<?php the_search_query(); ?>"</span>
         </div>
-    </div>
-
-<?php endif; ?>
-
-<?php get_template_part('pagination'); ?>
+        <div id="loop" class="list clear">
+            <?php while ( have_posts() ) : the_post(); ?>
+                <div class="hero">
+                    <div <?php post_class('post clear'); ?> id="post_<?php the_ID(); ?>">
+                        <h2><?php the_title(); ?></h2>
+                        <div class="post-meta">
+                            <span class="post-author"><?php the_author(); ?></span>
+                        </div>
+                        <div class="post-content"><?php if (function_exists('smart_excerpt')) smart_excerpt(get_the_excerpt(), 55); ?> <a href="<?php the_permalink() ?>">More</a></div>
+                    </div>
+                </div>
+            <?php endwhile; ?>
+        </div>
+    <?php else : ?>
+        <div class="content-title">
+            Your search <strong><?php the_search_query(); ?></strong> did not match any documents
+        </div>
+    <?php endif; ?>
+</div>
 
 <?php get_footer(); ?>

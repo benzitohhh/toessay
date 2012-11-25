@@ -51,10 +51,13 @@
             <div class="nav">
                 <ul id="dd" class="dd">
                     <li class="menu-item first">
-                        <a href="<?php echo toessay_cat_url(); ?>/about/">About TOE</a>
+                        <a href="<?php echo toessay_cat_url(); ?>/">Home</a>
                     </li>
                     <li class="menu-item">
                         <a href="<?php echo toessay_cat_url(); ?>/contents/">Contents</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="<?php echo toessay_cat_url(); ?>/about/">About TOE</a>
                     </li>
                     <li class="menu-item last">
                         <a href="<?php echo toessay_cat_url(); ?>/contact/">Contact</a>
@@ -62,7 +65,7 @@
 
                     <li class="menu_item floatright">
                         <div class="search">
-                            <form method="get" id="searchform" action="<?php echo toessay_cat_url(); ?>">
+                            <form method="get" id="searchform" action="<?php echo get_bloginfo('url'); ?>">
                                 <fieldset>
                                     <input name="s" type="text" onfocus="if(this.value=='Search') this.value='';" onblur="if(this.value=='') this.value='Search';" value="Search"></input>
                                     <button type="submit"></button>

@@ -835,11 +835,11 @@ function toessay_filter_category_template($template){
             $templates[] = $p . '.php';
         }
     }
+    
     // add more templates here if required
     return ( locate_template($templates) != false ) ? locate_template($templates) : $template;
 }
 add_filter('category_template', 'toessay_filter_category_template');
-
 
 /* ============================================================= */
 /* short name      i.e. "Barack Obama" -> "B. Obama"             */
@@ -910,9 +910,7 @@ function toessay_setup_category_meta() {
     $cat_id = get_queried_object()->term_id;
     if ($cat_id) {
         $cat = get_category($cat_id);
-    } elseif ($cats = get_the_category()) {
-        // get from page
-        $cat = $cats[0];
+
     } else {
         //use  most recent
         $cat = toessay_get_most_recent_published_category();
