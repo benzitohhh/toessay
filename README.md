@@ -20,6 +20,10 @@ On the server, pull and wipe the db:
 
 In /wordpress/, copy `wp-config.backup.php` to `wp-config.php` and set the db credentials.
 
+## Uploads
+
+Create dir /wordpress/wp-content/uploads and make it writable by the server.
+
 ## Permalinks
 
 Ensure
