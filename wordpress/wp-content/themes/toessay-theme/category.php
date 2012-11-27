@@ -45,7 +45,7 @@
                             <?php setup_postdata($post); ?>
                             <div <?php post_class('post clear'); ?> id="post_<?php the_ID(); ?>">
                                 <span class="post-author"><?php echo toessay_short_name(get_the_author()); ?>: </span>
-                                <span><?php echo to_essay_shorten_title(toessay_short_name(get_the_author()), get_the_title()); ?> <a href="<?php the_permalink() ?>"> More</a></span>
+                                <a href="<?php the_permalink() ?>"><?php echo to_essay_shorten_title(toessay_short_name(get_the_author()), get_the_title()); ?> </a>
                             </div>
                         <?php endfor;?>
                     </div>
@@ -55,7 +55,7 @@
                             <?php setup_postdata($post); ?>
                             <div <?php post_class('post clear'); ?> id="post_<?php the_ID(); ?>">
                                 <span class="post-author"><?php echo toessay_short_name(get_the_author()); ?>: </span>
-                                <span><?php echo to_essay_shorten_title(toessay_short_name(get_the_author()), get_the_title()); ?> <a href="<?php the_permalink() ?>"> More</a></span>
+                                <a href="<?php the_permalink() ?>"><?php echo to_essay_shorten_title(toessay_short_name(get_the_author()), get_the_title()); ?> </a>
                             </div>
                         <?php endfor;?>                    
                     </div>

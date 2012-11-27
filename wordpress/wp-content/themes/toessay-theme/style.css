@@ -28,7 +28,7 @@ body {font: 100%/1.4 TimesNewRoman, "Times New Roman", Times, Baskerville, Georg
 .left {float: left;}
 .right {float: right;}
 
-.wrapper {width: 1100px; background: #fff; margin: 0 auto;}
+.wrapper {width: 960px; background: #fff; margin: 0 auto;}
 #container {padding: 1.4em 0 2.8em;}
 
 /*** Header ***/
@@ -60,7 +60,7 @@ body {font: 100%/1.4 TimesNewRoman, "Times New Roman", Times, Baskerville, Georg
 .dd li {float: left; display: block; height: 100%; width: 20%; border-left: 1px solid #d9d9d9; padding: 0 1em; font-size: 100%; text-transform: none; text-align: center;}
 .dd li.last {border-right: 1px solid #d9d9d9; }
 .dd li.first {border-left: none; }
-.dd li.floatright {float:right; background: #DADADA;}
+.dd li.floatright {float:right; border-left:none; background: #DADADA;}
 .dd li a {color: #000; text-decoration: none; display: block; white-space: nowrap;}
 .dd li a:hover {text-decoration: underline;}
 .dd li ul {position: absolute; padding: 8px 0 10px; visibility: hidden; background: #000; z-index: 100;}
@@ -129,15 +129,17 @@ a.dd_hover:hover {text-decoration: none !important;}
 
 /*** Subhero ***/
 .subhero .row {overflow: auto; border-bottom: 1px solid #D9D9D9; margin-bottom: 1.4em; padding-bottom: 1.4em;}
-.subhero .row .post {width: 45%; float: left; border: none; margin: 0; padding: 0;}
+.subhero .row .post {width: 47%; float: left; border: none; margin: 0; padding: 0;}
 .subhero .row .post.col1 {float: right;}
 
 
 /*** more links ***/
 .morelinks {clear: both;}
-.morelinks .col {width: 45%; float: left;}
+.morelinks .col {width: 47%; float: left;}
 .morelinks .col.col1 {float: right;}
 .morelinks .post {border: none; margin: 0; padding: 0;}
+.morelinks a {text-decoration: none;}
+.morelinks a:hover {text-decoration: underline;}
 
 
 .grid {padding: 12px 0 0 12px;}
@@ -368,8 +370,8 @@ p#cancel-comment-reply {float: right; margin: 0;}
 
 /*** Issuebar ***/
 .issuebar {width: 20%; float: left; padding: 0 1.4em;}
-.issuebar img {display: block; margin: 0 auto; border: 1px solid #D9D9D9; width: 11em; height: 11em;}
-.issuebar p {text-align: center;}
+.issuebar img {display: block; margin: 0 auto; border: 1px solid #D9D9D9; width: 9.625em; height: 9.625em;}
+.issuebar p {text-align: center; font-size: 0.9em; line-height: 1.555em;}
 .issuebar .issue-nav {margin: 1.4em auto 0;}
 .issuebar .issue-nav .link {text-decoration: none; color: black;}
 .issuebar .issue-nav .link span {text-decoration: underline;}

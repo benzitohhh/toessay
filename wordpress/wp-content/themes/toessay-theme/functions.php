@@ -6,8 +6,8 @@ add_theme_support( 'post-thumbnails' );
 add_theme_support( 'automatic-feed-links' );
 
 function sight_setup() {
-    update_option('thumbnail_size_w', 176);
-    update_option('thumbnail_size_h', 176);
+    update_option('thumbnail_size_w', 154);
+    update_option('thumbnail_size_h', 154);
     add_image_size( 'mini-thumbnail', 50, 50, true );
     add_image_size( 'slide', 640, 290, true );
     register_nav_menu('Navigation', __('Navigation'));
@@ -857,7 +857,7 @@ function toessay_is_too_long($author, $title) {
 
 function to_essay_shorten_title($author, $title) {
     $len = strlen($author) + strlen($title);
-    $aLen = 28 - strlen($author);
+    $aLen = 30 - strlen($author);
     if ($aLen < strLen($title)) {
         return substr($title, 0, $aLen) . "..";
     }
@@ -922,7 +922,9 @@ function toessay_setup_category_meta() {
     $cat_id = get_queried_object()->term_id;
     if ($cat_id) {
         $cat = get_category($cat_id);
-
+    } elseif ($cats = get_the_category()) {
+        // get from page
+        $cat = $cats[0];
     } else {
         //use  most recent
         $cat = toessay_get_most_recent_published_category();
@@ -1004,7 +1006,7 @@ function toessay_cat_image() {
     }
     $idx = strrpos($image, '.');
     $ext = substr($image, $idx+1);
-    return substr($image, 0 , $idx) . "-176x176." . $ext;
+    return substr($image, 0 , $idx) . "-154x154." . $ext;
 }
 
 function toessay_cat_published() {
