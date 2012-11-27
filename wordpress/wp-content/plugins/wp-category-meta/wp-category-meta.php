@@ -1,15 +1,14 @@
 <?php
 /*
  * Plugin Name: wp-category-meta
- * Plugin URI: #
  * Description: Add the ability to attach meta to the Wordpress categories
- * Version: 1.2.4
- * Author: Eric Le Bail
- * Author URI: #
+ * Version: 1.2.7
+ * Author: Randy Hoyt, steveclarkcouk, Vitaliy Kukin, Eric Le Bail, Tom Ransom
+ * Author URI: http://randyhoyt.com/
  *
- * This plugin has been developped and tested with Wordpress Version 2.8
+ * This plugin has been developped and tested with Wordpress Version 3.3.1
  *
- * Copyright 2010  Eric Le Bail (email : eric_lebail@hotmail.com)
+ * Copyright 2012  Randy Hoyt (randyhoyt.com)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -51,7 +50,7 @@ global $wptm_version;
 global $wptm_db_version;
 global $wptm_table_name;
 global $wp_version;
-$wptm_version = '1.2.4';
+$wptm_version = '1.2.5';
 $wptm_db_version = '0.0.1';
 $wptm_table_name = $wpdb->prefix.'termsmeta';
 
@@ -162,7 +161,7 @@ function wptm_dropTable($wpdb, $table_name)
 function wptm_init() {
     global $wp_version;
     if (function_exists('load_plugin_textdomain')) {
-        load_plugin_textdomain('wp-category-meta', PLUGINDIR.DIRECTORY_SEPARATOR."wp-category-meta".DIRECTORY_SEPARATOR.'lang');
+    	load_plugin_textdomain('wp-category-meta', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/');       
     }
     else
     {
@@ -196,7 +195,7 @@ function wptm_init() {
  *
  */
 function wptm_admin_enqueue_scripts() {
-    if(is_admin()) {
+    if(is_admin() && isset($_REQUEST["taxonomy"])) {
         // chargement des styles
         wp_register_style('thickbox-css', '/wp-includes/js/thickbox/thickbox.css');
         wp_enqueue_style('thickbox-css');
@@ -445,15 +444,16 @@ function wptm_save_meta_tags($id) {
     $metaList = get_option("wptm_configuration");
     // Check that the meta form is posted
     $wptm_edit = $_POST["wptm_edit"];
-    if (isset($wptm_edit) && !empty($wptm_edit)) {
-
+    if (isset($wptm_edit) && !empty($wptm_edit)) {	
         foreach($metaList as $inputName => $inputType)
         {
-            $inputValue = $_POST['wptm_'.$inputName];
-            delete_terms_meta($id, $inputName);
-            if (isset($inputValue) && !empty($inputValue)) {
-                add_terms_meta($id, $inputName, $inputValue);
-            }
+	   if($inputType['taxonomy'] == $_POST['taxonomy']) {
+		   $inputValue = $_POST['wptm_'.$inputName];
+		   delete_terms_meta($id, $inputName);
+		   if (isset($inputValue) && !empty($inputValue)) {
+		       add_terms_meta($id, $inputName, $inputValue);
+		   }
+	    }
         }
     }
 }
@@ -559,7 +559,7 @@ foreach($metaList as $inputName => $inputData)
 		</div>
 		<img src="images/media-button-image.gif"
 			alt="Add photos from your media" /> <a
-			href="media-upload.php?type=image&#038;TB_iframe=1&#038;tab=library&#038;height=500&#038;width=640"
+			href="media-upload.php?type=image&#038;wptm_send_label=<?php echo $inputName; ?>&#038;TB_iframe=1&#038;tab=library&#038;height=500&#038;width=640"
 			onclick="image_photo_url_add('<?php echo "wptm_".$inputName;?>')"
 			class="thickbox" title="Add an Image"> <strong><?php echo _e('Click here to add/change your image', 'wp-category-meta');?></strong>
 		</a><br />
@@ -598,4 +598,5 @@ foreach($metaList as $inputName => $inputData)
 </div>
 <?php
 }
+
 ?>

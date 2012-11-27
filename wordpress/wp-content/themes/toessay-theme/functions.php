@@ -6,8 +6,8 @@ add_theme_support( 'post-thumbnails' );
 add_theme_support( 'automatic-feed-links' );
 
 function sight_setup() {
-	update_option('thumbnail_size_w', 290);
-    update_option('thumbnail_size_h', 290);
+    update_option('thumbnail_size_w', 176);
+    update_option('thumbnail_size_h', 176);
     add_image_size( 'mini-thumbnail', 50, 50, true );
     add_image_size( 'slide', 640, 290, true );
     register_nav_menu('Navigation', __('Navigation'));
@@ -856,17 +856,12 @@ function toessay_is_too_long($author, $title) {
 }
 
 function to_essay_shorten_title($author, $title) {
-    error_log($author);
-    error_log($title);
     $len = strlen($author) + strlen($title);
-    error_log("len=" . $len);
     $aLen = 28 - strlen($author);
-    error_log("aLen=".$aLen);
     if ($aLen < strLen($title)) {
         return substr($title, 0, $aLen) . "..";
     }
     return $title;
-    
 }
 
 /* ============================================================= */
@@ -1003,7 +998,13 @@ function toessay_cat_date() {
 
 function toessay_cat_image() {
     $cat = toessay_cat();
-    return $cat['cat_meta']['image'][0];
+    $image = $cat['cat_meta']['image'][0];
+    if (!$image) {
+        return NULL;
+    }
+    $idx = strrpos($image, '.');
+    $ext = substr($image, $idx+1);
+    return substr($image, 0 , $idx) . "-176x176." . $ext;
 }
 
 function toessay_cat_published() {
