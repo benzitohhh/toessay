@@ -942,8 +942,9 @@ function toessay_setup_category_meta() {
     $cat_id = get_queried_object()->term_id;
     if ($cat_id) {
         $cat = get_category($cat_id);
-    } elseif ($cats = get_the_category() && !get_query_var('s')) {
+    } elseif (get_the_category() && !get_query_var('s')) {
         // get from page
+        $cats = get_the_category();
         $cat = $cats[0];
     } else {
         //use  most recent

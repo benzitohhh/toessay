@@ -205,7 +205,7 @@ a.dd_hover:hover {text-decoration: none !important;}
 .search-page .post {margin: 0 0 1.4em; padding: 0; border: none;}
 
 /*** single page ***/
-.single-page {margin: 0 1.4em;}
+.single-page {/*margin: 0 1.4em;*/}
 
 .entry {}
 .entry .post {}
