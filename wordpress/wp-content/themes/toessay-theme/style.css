@@ -60,7 +60,7 @@ body {font: 100%/1.4 TimesNewRoman, "Times New Roman", Times, Baskerville, Georg
 .dd li {float: left; display: block; height: 100%; width: 20%; border-left: 1px solid #d9d9d9; padding: 0 1em; font-size: 100%; text-transform: none; text-align: center;}
 .dd li.last {border-right: 1px solid #d9d9d9; }
 .dd li.first {border-left: none; }
-.dd li.floatright {float:right; border-left:none; background: #DADADA;}
+.dd li.floatright {float:left; border-left:none; background: #DADADA;}
 .dd li a {color: #000; text-decoration: none; display: block; white-space: nowrap;}
 .dd li a:hover {text-decoration: underline;}
 .dd li ul {position: absolute; padding: 8px 0 10px; visibility: hidden; background: #000; z-index: 100;}

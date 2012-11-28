@@ -841,6 +841,14 @@ function toessay_filter_category_template($template){
 }
 add_filter('category_template', 'toessay_filter_category_template');
 
+
+function toessay_filter_unpublished($search, $wp_query) {
+    $unpublished = toessay_cats_unpublished();
+    $wp_query->set('category__not_in', $unpublished);
+}
+add_filter('posts_search', 'toessay_filter_unpublished', 10, 2);
+
+
 /* ============================================================= */
 /* short name      i.e. "Barack Obama" -> "B. Obama"             */
 /* ============================================================= */
@@ -869,14 +877,18 @@ function to_essay_shorten_title($author, $title) {
 /* ============================================================= */
 
 function toessay_cats() {
-    global $toessay_cats, $toessay_cats_meta;
+    global $toessay_cats, $toessay_cats_meta, $toessay_cats_unpublished;
     if (!$toessay_cats) {
         // lazy load
         $toessay_cats = get_categories( array('orderby'=>'id', 'order'=>'desc') );
         $toessay_cats_meta = array();
+        $toessay_cats_unpublished = array();
         foreach ($toessay_cats as $cat) { 
             $meta = get_all_terms_meta($cat->term_id);
             $toessay_cats_meta[$cat->term_id] = $meta;
+            if (! $meta['published'][0]) {
+                $toessay_cats_unpublished[] = $cat->term_id;
+            }
         }
     }
     return $toessay_cats;
@@ -888,6 +900,14 @@ function toessay_cats_meta() {
         toessay_cats();
     }
     return $toessay_cats_meta;
+}
+
+function toessay_cats_unpublished() {
+    global $toessay_cats_unpublished;
+    if (!$toessay_cats_unpublished) {
+        toessay_cats();
+    }
+    return $toessay_cats_unpublished;
 }
 
 function toessay_get_most_recent_published_category() {
@@ -922,7 +942,7 @@ function toessay_setup_category_meta() {
     $cat_id = get_queried_object()->term_id;
     if ($cat_id) {
         $cat = get_category($cat_id);
-    } elseif ($cats = get_the_category()) {
+    } elseif ($cats = get_the_category() && !get_query_var('s')) {
         // get from page
         $cat = $cats[0];
     } else {
