@@ -922,6 +922,14 @@ function toessay_get_most_recent_published_category() {
     return NULL;
 }
 
+function toessay_get_next_issue_info() {
+    $cats_meta = toessay_cats_meta();
+    $cat = toessay_cat();
+    $most_recent = $cat['most_recent'];
+    return $cats_meta[$most_recent->term_id]['nextissueinfo'][0];
+}
+
+
 /*
   Returns index of the specified cat_id in ordered list of cats
  */
@@ -939,6 +947,10 @@ function toessay_get_idx($id) {
 /* setup category meta                                           */
 /* ============================================================= */
 function toessay_setup_category_meta() {
+    // get most recent
+    $cat_most_recent = toessay_get_most_recent_published_category();
+
+    // get current
     $cat_id = get_queried_object()->term_id;
     if ($cat_id) {
         $cat = get_category($cat_id);
@@ -948,7 +960,7 @@ function toessay_setup_category_meta() {
         $cat = $cats[0];
     } else {
         //use  most recent
-        $cat = toessay_get_most_recent_published_category();
+        $cat = $cat_most_recent;
     }
 
     $cats = toessay_cats();
@@ -968,6 +980,7 @@ function toessay_setup_category_meta() {
     $arr['cat_meta'] = $cats_meta[$cat->term_id];
     $arr['prev'] = $prev;
     $arr['next'] = $next;
+    $arr['most_recent'] = $cat_most_recent;
     return $arr;
 }
 
