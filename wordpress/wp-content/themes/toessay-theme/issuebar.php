@@ -8,10 +8,10 @@
                         <p><?php echo toessay_cat_date(); ?>, <?php echo toessay_cat_name(); ?></p>
                         <div class="issue-nav">
                             <?php if(toessay_cat_url_prev()): ?>
-                                <a class="link prev" href="<?php echo toessay_cat_url_prev(); ?>">&lt; <span>Previous</span></a>
+                                <a class="link prev" href="<?php echo toessay_cat_url_prev(); ?>">&lt;<span></span></a>
                             <?php endif; ?>
                             <?php if(toessay_cat_url_next()): ?>
-                                <a class="link next" href="<?php echo toessay_cat_url_next(); ?>"><span>Next</span> &gt;</a>
+                                <a class="link next" href="<?php echo toessay_cat_url_next(); ?>">&gt;<span></span></a>
                             <?php endif; ?>
                         </div>
                     </div>
