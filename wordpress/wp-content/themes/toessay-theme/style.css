@@ -35,9 +35,9 @@ body {font: 100%/1.4 TimesNewRoman, "Times New Roman", Times, Baskerville, Georg
 
 .header {margin-bottom: 1.4em;}
 
-.logo {float: left; width: 40%; margin-left: 20%;}
+.logo {width: 47%; margin: 0 auto;}
 .logo a {text-decoration: none; color: inherit;}
-.logo a h1 {float: left; font-size: 2em; font-weight: normal;}
+.logo a h1 {float: left; font-size: 2.25em; font-weight: bold; text-transform:uppercase;}
 .logo a .tagline {float: left; margin-left: 0.6em; }
 .logo a .tagline p {padding: 0; margin: 0; line-height: 1.1; font-size: 0.8em;}
 
