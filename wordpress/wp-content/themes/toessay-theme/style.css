@@ -111,7 +111,7 @@ a.dd_hover:hover {text-decoration: none !important;}
 
 .list .post {border-bottom: 1px solid #d9d9d9; margin-bottom: 1.4em; padding-bottom: 1.4em;}
 .list .post .thumb img {float: left; margin: 0 30px 30px 0; width: 290px; height: 290px;}
-.list .post a {color: #000;}
+.list .post a {color: #191970;}
 .list .post .post-category {font-size: 100%; color: #d9d9d9; text-transform: uppercase; margin-bottom: 11px;}
 .list .post .post-category a {text-decoration: none;}
 .list .post .post-category a:hover {text-decoration: underline;}
