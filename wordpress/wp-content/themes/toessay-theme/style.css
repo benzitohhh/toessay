@@ -326,7 +326,7 @@ p#cancel-comment-reply {float: right; margin: 0;}
 /*** Sidebar ***/
 
 .sidebar {width: 20%; float: right; padding: 0 2.8em;}
-.sidebar .next-issue-info {}
+.sidebar .next-issue-info {border-bottom: 1px solid #D9D9D9; margin-bottom: 1.4em; padding-bottom: 1.4em;}
 .sidebar .next-issue-info p { font: 100% Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; font-size: 0.9em; line-height: 1.555em;}
 
 
