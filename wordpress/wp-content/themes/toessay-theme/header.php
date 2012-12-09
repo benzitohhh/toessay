@@ -54,10 +54,10 @@
                         <a href="<?php echo toessay_cat_url(); ?>/">Home</a>
                     </li>
                     <li class="menu-item">
-                        <a href="<?php echo toessay_cat_url(); ?>/contents/">Contents</a>
+                        <a href="<?php echo toessay_cat_url(); ?>/about/">About TOE</a>
                     </li>
                     <li class="menu-item">
-                        <a href="<?php echo toessay_cat_url(); ?>/about/">About TOE</a>
+                        <a href="<?php echo toessay_cat_url(); ?>/contents/">Contents</a>
                     </li>
                     <li class="menu-item last">
                         <a href="<?php echo toessay_cat_url(); ?>/contact/">Contact</a>
