@@ -205,7 +205,7 @@ a.dd_hover:hover {text-decoration: none !important;}
 .search-page .post {margin: 0 0 1.4em; padding: 0; border: none;}
 
 /*** single page ***/
-.single-page {/*margin: 0 1.4em;*/}
+.single-page { margin: 0 1.4em;}
 
 .entry {}
 .entry .post {}
@@ -377,7 +377,7 @@ p#cancel-comment-reply {float: right; margin: 0;}
 
 /*** Issuebar ***/
 .issuebar {width: 20%; float: left; padding: 0 1.4em;}
-.issuebar .img-and-title {border-bottom: 1px solid #D9D9D9; margin-bottom: 1.4em; padding-bottom: 1.4em;}
+.issuebar .img-and-title {}
 .issuebar .img-and-title img {display: block; margin: 0 auto; /*border: 1px solid #D9D9D9;*/ width: 9.625em; height: 9.625em;}
 .issuebar .img-and-title p {text-align: center; font-size: 0.9em; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; line-height: 1.555em;}
 .issuebar .img-and-title .issue-nav {margin: 0 auto 0; width: 20%; overflow: auto;}
@@ -385,6 +385,7 @@ p#cancel-comment-reply {float: right; margin: 0;}
 .issuebar .img-and-title .issue-nav .link span {text-decoration: underline;}
 .issuebar .img-and-title .issue-nav .link.prev {float: left;}
 .issuebar .img-and-title .issue-nav .link.next {float: right;}
+.issuebar .twitter-link {border-top: 1px solid #D9D9D9; padding-top: 1.4em; margin: 1.4em 1.4em 0;}
 .issuebar .twitter-link img {width: 32%; margin: -0.5625em auto -0.5625em; display: block;}
 
 /*** Footer ***/
