@@ -220,9 +220,9 @@ a.dd_hover:hover {text-decoration: none !important;}
 .entry .post-footer {}
 .entry .post-footer a {color: #000; text-decoration: none;}
 .entry .post-footer a:hover {text-decoration: underline;}
-.entry .share-links {width: 29%; margin-top: 2.8em;}
+.entry .share-links {width: 36%; margin-top: 2.8em;}
 .entry .share-links .fb_share {float: left; margin-right: 1.4em;}
-.entry .share-links .twitter-share-button {}
+.entry .share-links .twitter-share-button {float: left;}
 .page .post-category {display: none;}
 
 .f, .t, .di, .su {width: 16px; height: 15px; position: absolute; bottom: 15px;}
@@ -386,7 +386,7 @@ p#cancel-comment-reply {float: right; margin: 0;}
 .issuebar .img-and-title .issue-nav .link.prev {float: left;}
 .issuebar .img-and-title .issue-nav .link.next {float: right;}
 .issuebar .twitter-link {border-top: 1px solid #D9D9D9; padding-top: 1.4em; margin: 1.4em 1.4em 0;}
-.issuebar .twitter-link img {width: 32%; margin: -0.5625em auto -0.5625em; display: block;}
+.issuebar .twitter-link img {width: 56%; margin: -0.5625em auto -0.5625em; display: block;}
 
 /*** Footer ***/
 
