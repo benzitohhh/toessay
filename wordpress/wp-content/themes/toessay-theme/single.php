@@ -20,7 +20,25 @@
                     <?php edit_post_link( __( 'Edit entry'), '&bull; '); ?>
                 </div>
                 <div class="post-content"><?php the_content(); ?></div>
-                <div class="post-footer"><?php the_tags(__('<strong>Tags: </strong>'), ', '); ?></div>
+                <!-- <div class="post-footer"><?php the_tags(__('<strong>Tags: </strong>'), ', '); ?></div> -->
+                
+
+                <div class="share-links">
+                
+                    <div class="fb_share">
+                        <a name="fb_share" type="button" share_url="<?php the_permalink() ?>"
+                           href="http://www.facebook.com/sharer.php">Share</a>
+                        <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+                    </div>
+                    
+                    <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+                    <a href="http://twitter.com/share" class="twitter-share-button"
+                       data-url="<?php the_permalink(); ?>"
+                       data-text="<?php the_title(); ?>"
+                       data-related="syedbalkhi:Founder of WPBeginner"
+                       data-count="none">Tweet</a>
+
+                </div>
             </div>
             <div class="post-navigation clear">
 

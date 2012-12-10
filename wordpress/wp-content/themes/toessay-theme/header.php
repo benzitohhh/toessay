@@ -4,7 +4,26 @@
         <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
         <title><?php wp_title ( '|', true,'right' ); ?></title>
         <meta http-equiv="Content-language" content="<?php bloginfo('language'); ?>" />
-		<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+        <!-- facebook integration -->
+        <meta property="fb:admins" content="653640769" />
+        <?php if (is_single() || is_author()) { ?>
+            <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
+            <meta property="og:url" content="<?php the_permalink() ?>"/>
+            <meta property="og:title" content="<?php wp_title(); ?>" />
+            <meta property="og:description" content="<?php echo strip_tags(get_the_excerpt($post->ID)); ?>" />
+            <meta property="og:type" content="article" />
+            <meta property="og:image" content="<?php echo toessay_cat_image(); ?>" />
+        <?php } else { ?>
+            <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
+            <meta property="og:url" content="<?php the_permalink() ?>"/>
+            <meta property="og:title" content="<?php wp_title(); ?>" />
+            <meta property="og:description" content="<?php bloginfo('description'); ?>" />
+            <meta property="og:type" content="website" />
+            <meta property="og:image" content="<?php echo toessay_cat_image(); ?>" />
+        <?php } ?>
+
+	<link rel="profile" href="http://gmpg.org/xfn/11" />
         <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favico.ico" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); ?>" />
         <!--[if IE]><link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/ie.css" /><![endif]-->
