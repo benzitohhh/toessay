@@ -841,12 +841,14 @@ function toessay_filter_category_template($template){
 }
 add_filter('category_template', 'toessay_filter_category_template');
 
-
-function toessay_filter_unpublished($search, $wp_query) {
-    $unpublished = toessay_cats_unpublished();
-    $wp_query->set('category__not_in', $unpublished);
+function toessay_filter_wp_search($query) { 
+    if (!$query->is_admin && $query->is_search) {
+        $unpublished = toessay_cats_unpublished();
+        $query->set('category__not_in', $unpublished);
+    }
+    return $query;
 }
-add_filter('posts_search', 'toessay_filter_unpublished', 10, 2);
+add_filter('pre_get_posts','toessay_filter_wp_search');
 
 
 /* ============================================================= */
