@@ -968,15 +968,24 @@ function toessay_setup_category_meta() {
     $cats = toessay_cats();
     $cats_meta = toessay_cats_meta();
     $idx = toessay_get_idx($cat->term_id);
-    $next = $cats[$idx - 1];
-    $prev = $cats[$idx + 1];
-    if (!$cats_meta[$next->term_id]['published'][0]) {
-        $next = NULL;
+    
+    $next = NULL;
+    $prev = NULL;
+    for($i = $idx - 1; $i >= 0; $i--) {
+    	$tid = $cats[$i]->term_id;
+    	if ($cats_meta[$tid]['published'][0]) {
+    	    $next = $cats[$i];
+    		break; 
+    	}
     }
-    if (!$cats_meta[$prev->term_id]['published'][0]) {
-        $prev = NULL;
+    for($i = $idx + 1; $i < count($cats); $i++) {
+    	$tid = $cats[$i]->term_id;
+    	if ($cats_meta[$tid]['published'][0]) {
+    		$prev = $cats[$i];
+    		break; 
+    	}
     }
-
+    
     $arr = array();
     $arr['cat'] = $cat;
     $arr['cat_meta'] = $cats_meta[$cat->term_id];
@@ -1077,6 +1086,7 @@ function setup_ranked_postdata() {
     $ranked_posts = $wpdb->get_results($querystr, OBJECT);
 
     // push unranked posts into ranked
+    $ids = array();
     foreach ($ranked_posts as $post) {
         $ids[] = $post->ID;
     }
