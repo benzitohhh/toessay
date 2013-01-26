@@ -23,7 +23,7 @@ table{border-collapse:collapse;border-spacing:0;}
 
 /*** Main ***/
 
-body {font: 100%/1.4 TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif; padding: 1.4em 0 1.4em;}
+body {font: 100%/1.4 TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif; padding: 1.4em 0 1.4em; color: rgb(9, 9, 34);}
 .clear:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
 .left {float: left;}
 .right {float: right;}
@@ -33,11 +33,12 @@ body {font: 100%/1.4 TimesNewRoman, "Times New Roman", Times, Baskerville, Georg
 
 /*** Header ***/
 
-.header {margin-bottom: 1.4em;}
+.header {margin-bottom: 1.4em; color: rgb(9, 9, 34);}
 
-.logo {width: 48%; margin: 0 auto;}
+.logo {width: 57%; margin: 0 auto;}
 .logo a {text-decoration: none; color: inherit;}
-.logo a h1 {float: left; font-size: 2.5em; font-weight: bold; text-transform:uppercase; line-height: 1.1em;}
+.logo a h1 {float: left; font-size: 3em; font-weight: bold; text-transform:uppercase; line-height: 0.933333em; /*font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; */}
+
 .logo a .tagline {float: left; margin-left: 0.6em; }
 .logo a .tagline p {padding: 0; margin: 0; line-height: 1.1; font-size: 0.8em; font-weight: bold;}
 
@@ -61,7 +62,7 @@ body {font: 100%/1.4 TimesNewRoman, "Times New Roman", Times, Baskerville, Georg
 .dd li.last {border-right: 1px solid #d9d9d9; }
 .dd li.first {border-left: none; }
 .dd li.floatright {float:left; border-left:none; background: #DADADA;}
-.dd li a {color: #000; text-decoration: none; display: block; white-space: nowrap;  font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;}
+.dd li a {color: rgb(9, 9, 34); text-decoration: none; display: block; white-space: nowrap;  font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;}
 .dd li a:hover {text-decoration: underline;}
 .dd li ul {position: absolute; padding: 8px 0 10px; visibility: hidden; background: #000; z-index: 100;}
 .dd li ul li {float: none; border: none; font-size: 100%; text-align: left; margin: 5px 0; padding: 0 8px;}
@@ -112,14 +113,15 @@ a.dd_hover:hover {text-decoration: none !important;}
 .list .post {border-bottom: 1px solid #d9d9d9; margin-bottom: 1.4em; padding-bottom: 1.4em;}
 .list .post .thumb img {float: left; margin: 0 30px 30px 0; width: 290px; height: 290px;}
 .list .post a {color: rgb(28, 49, 116); font-weight: bold; text-decoration: none;}
+.list .post a:hover {text-decoration: underline;}
 .list .post .post-category {font-size: 100%; color: #d9d9d9; text-transform: uppercase; margin-bottom: 11px;}
 .list .post .post-category a {text-decoration: none;}
 .list .post .post-category a:hover {text-decoration: underline;}
 .list .post h2 {}
-.list .post h2, .list .post h2 a {color: #000; font-size: 1.0625em; font-weight: bold; text-decoration: none; line-height: 1.31764em;}
+.list .post h2, .list .post h2 a {color: rgb(9, 9, 34); font-size: 1.0625em; font-weight: bold; text-decoration: none; line-height: 1.31764em;}
 .list .post h2 a:hover {text-decoration: underline;}
 .list .post .post-meta {font-size: 100%; font-style: italic; color: #aaa9a9;}
-.list .post .post-meta span, .list .post .post-meta a {color: #000; text-decoration: none; font-size: 0.90625em; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; font-style: normal;}
+.list .post .post-meta span, .list .post .post-meta a {color: rgb(9, 9, 34); text-decoration: none; font-size: 0.90625em; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; font-style: normal;}
 .list .post .post-meta a:hover {text-decoration: underline;}
 .post-author {text-transform: uppercase;}
 .post-author.long {display: block;}
@@ -160,28 +162,28 @@ a.dd_hover:hover {text-decoration: none !important;}
 
 .rollover {opacity: 0; background: #ffea97; width: 154px; height: 154px; padding: 18px; margin: 0; position: absolute; top: 0; left: 0; cursor: pointer;}
 .rollover-title {margin-bottom: 5px;}
-.rollover-title, .rollover-title a {color: #000; font-size: 100%; font-weight: normal; text-decoration: none;}
+.rollover-title, .rollover-title a {color: rgb(9, 9, 34); font-size: 100%; font-weight: normal; text-decoration: none;}
 .rollover-title a:hover {text-decoration: underline;}
 .rollover-content {color: #262626; font: 100% Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;}
 .rollover-meta {font-size: 100%; font-style: italic; color: #656363;}
-.rollover-meta span, .rollover-meta a {color: #000; text-decoration: none; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; font-style: normal;}
+.rollover-meta span, .rollover-meta a {color: rgb(9, 9, 34); text-decoration: none; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; font-style: normal;}
 .rollover-author {text-transform: uppercase;}
 .rollover-meta a:hover {text-decoration: underline;}
 
 .pagination {padding: 20px 0 0 30px; color: #aaa9a9; font-size: 100%; clear: both; position: relative;}
-.pagination a {color: #000; text-decoration: none;}
+.pagination a {color: rgb(9, 9, 34); text-decoration: none;}
 .pagination a:hover {text-decoration: underline;}
 .pagination .nextpostslink {position: absolute; right: 0; top: 17px; text-transform: uppercase; background: url("images/nextpostslink.png") 100% 0 no-repeat; padding-right: 36px;}
 .pagination .previouspostslink {position: absolute; left: 30px; top: 17px; text-transform: uppercase; background: url("images/previouspostslink.png") 0 0 no-repeat; padding-left: 36px;}
 #pagination {padding: 20px 0 0 30px;}
-#pagination .nextpostslink {color: #000; text-decoration: none; display: block; padding: 9px 0; text-align: center; font-size: 100%;}
+#pagination .nextpostslink {color: rgb(9, 9, 34); text-decoration: none; display: block; padding: 9px 0; text-align: center; font-size: 100%;}
 #pagination .nextpostslink:hover {background-color: #FFEA97; text-decoration: none; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
 #pagination .loading {background: url("images/loading.gif") 240px 9px no-repeat; color: #555;}
 #pagination .loading:hover {background-color: transparent !important; cursor: default;}
 
 /*** contents page ***/
 .contents-page .title {margin-bottom: 2.8em;}
-.contents-page .title .page {font-weight: normal; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; font-size: 2em; line-height: 1em; padding-bottom: 0em;}
+.contents-page .title .page {font-weight: normal; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; font-size: 2em; line-height: 1em; padding-bottom: 0.4em;}
 .contents-page .title .issue {border-bottom: 1px solid; padding-bottom: 0.7em;}
 .contents-page .post {margin: 0 0 1.4em; padding: 0; border: none; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;}
 
@@ -189,14 +191,15 @@ a.dd_hover:hover {text-decoration: none !important;}
 .contact-page .contact {margin-bottom: 2.8em;}
 .contact-page .title {font-size: 2em; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; line-height: 1em; margin-bottom: 1.1em}
 .contact-page .title span {border-bottom: 1px solid; padding-bottom: 0.4em;}
-.contact-page a {display: block; text-decoration: none;}
+.contact-page a {display: block; text-decoration: none; color: rgb(28, 49, 116); font-weight: bold; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;}
+.contact-page a:hover {text-decoration: underline;}
 .contact-page p {font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; line-height: 1.4em;}
 .contact-page .space-above {margin-top: 1.4em;}
 
 /*** about page ***/
 .about-page h1 {font-weight: normal; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; font-size: 2em; line-height: 1em; margin-bottom: 1.1em}
-.about-page h1 span {border-bottom: 1px solid; padding-bottom: 0.4em;}
-.about-page p {font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; }
+.about-page h1 span {border-bottom: 1px solid; padding-bottom: 0.4em; color: rgb(9, 9, 34);}
+.about-page p {font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; color: rgb(9, 9, 34);}
 
 /*** search page ***/
 .search-page .title {margin-bottom: 2.8em;}
@@ -210,15 +213,15 @@ a.dd_hover:hover {text-decoration: none !important;}
 .entry {}
 .entry .post {}
 .entry .post-meta {font-size: 100%; font-style: italic; color: #aaa9a9; margin-bottom: 1.4em;}
-.entry .post-meta h1 {color: black; font-size: 100%; font-weight: bold; font-size: 1.5625em; font-style: normal; }
-.entry .post-meta span, .entry .post-meta a {color: #000; text-decoration: none; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; font-style: normal; border-bottom: 1px solid; padding-bottom: 0.7em;}
+.entry .post-meta h1 {color: black; font-size: 100%; font-weight: bold; font-size: 1.5625em; font-style: normal; color: rgb(9, 9, 34);}
+.entry .post-meta span, .entry .post-meta a {color: rgb(9, 9, 34); text-decoration: none; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; font-style: normal; border-bottom: 1px solid; padding-bottom: 0.7em;}
 .entry .post-meta a:hover {text-decoration: underline;}
 .entry .post-comms {position: absolute; right: 0;}
 .entry .post-content {}
-.entry .post-content a {color: #000;}
+.entry .post-content a {color: rgb(9, 9, 34);}
 .entry .post-content a:hover {text-decoration: none;}
 .entry .post-footer {}
-.entry .post-footer a {color: #000; text-decoration: none;}
+.entry .post-footer a {color: rgb(9, 9, 34); text-decoration: none;}
 .entry .post-footer a:hover {text-decoration: underline;}
 .entry .share-links {width: 36%; margin-top: 2.8em;}
 .entry .share-links .fb_share {float: left; margin-right: 1.4em;}
@@ -236,13 +239,13 @@ a.dd_hover:hover {text-decoration: none !important;}
 .su:hover {background-position: -48px -15px;}
 
 .post-content {}
-.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5 {color: #000; font-weight: normal; font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif; margin: 15px 0;}
+.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5 {color: rgb(9, 9, 34); font-weight: normal; font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif; margin: 15px 0;}
 .post-content h1 {font-size: 100%;}
 .post-content h2 {font-size: 100%;}
 .post-content h3 {font-size: 100%;}
 .post-content h4 {font-size: 100%;}
 .post-content h5 {font-size: 100%;}
-.post-content {color: #262626; font: 100% Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; line-height: 1.4em;}
+.post-content {color: rgb(14, 14, 67); font: 100% Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; line-height: 1.4em;}
 .post-content p {margin-bottom: 0.7em;}
 .post-content ol {list-style: decimal; padding-left: 35px; margin: 15px 0;}
 .post-content ul {list-style: disc; padding-left: 35px; margin: 15px 0;}
@@ -255,7 +258,7 @@ a.dd_hover:hover {text-decoration: none !important;}
 .post-content .search input {width: 570px; font-size: 100%;}
 
 .post-navigation {display: none; width: 610px; padding: 15px 0 0 30px; position: relative;}
-.post-navigation a {display: block; color: #000; font: 100% Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; text-decoration: none; line-height: 1.5;}
+.post-navigation a {display: block; color: rgb(9, 9, 34); font: 100% Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; text-decoration: none; line-height: 1.5;}
 .post-navigation a:hover {text-decoration: none;}
 .post-navigation a em {display: block; color: #aaa9a9; font: italic 100% TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;}
 .post-navigation a:hover span {text-decoration: underline;}
@@ -287,15 +290,15 @@ a.dd_hover:hover {text-decoration: none !important;}
 
 /*** Comments ***/
 
-.comments h3 {font-size: 100%; font-weight: normal; color: #000; padding: 15px 0 10px 30px; border-bottom: 1px solid #d9d9d9;}
-.comments a {color: #000;}
+.comments h3 {font-size: 100%; font-weight: normal; color: rgb(9, 9, 34); padding: 15px 0 10px 30px; border-bottom: 1px solid #d9d9d9;}
+.comments a {color: rgb(9, 9, 34);}
 #comments {margin-bottom: 30px;}
 .comment {padding: 15px 0 15px 30px; border-bottom: 1px dotted #d9d9d9;}
 .comment td {vertical-align: top;}
 .comment-meta {position: relative; min-height: 70px; font-size: 100%; margin-right: 30px;}
 .avatar {display: block; margin-right: 10px;}
 .comment-author {color: #aaa9a9;}
-.comment-author span {color: #000;}
+.comment-author span {color: rgb(9, 9, 34);}
 .comment-author a, .comment-author span {text-decoration: none; text-transform: uppercase; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; font-style: normal;}
 .comment-author a:hover {text-decoration: underline;}
 .comment-author, .comment-date {white-space: nowrap}
@@ -330,13 +333,13 @@ p#cancel-comment-reply {float: right; margin: 0;}
 
 .sidebar {width: 20%; float: right; padding: 0 2.8em;}
 .sidebar .next-issue-info {border-bottom: 1px solid #D9D9D9; margin-bottom: 1.4em; padding-bottom: 1.4em;}
-.sidebar .next-issue-info p { font: 100% Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; font-size: 0.9em; line-height: 1.555em;}
+.sidebar .next-issue-info p { font: 100% Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; font-size: 0.9em; line-height: 1.555em; color: rgb(9, 9, 34);}
 
 
 .widget {margin-bottom: 35px;}
 .widget-small {width: 130px;}
 .widget h3, .widget-small h3 {color: #1f2122; font-size: 100%; font-weight: normal; text-transform: uppercase; padding-bottom: 15px; margin-bottom: 20px; border-bottom: 1px solid #d9d9d9;}
-.widget a, .widget-small a {color: #000; text-decoration: none;}
+.widget a, .widget-small a {color: rgb(9, 9, 34); text-decoration: none;}
 .widget a:hover, .widget-small a:hover {text-decoration: underline;}
 .widget p, .textwidget {color: #262626; font: 100% Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;}
 .widget p a, .textwidget a {text-decoration: underline;}
@@ -379,20 +382,21 @@ p#cancel-comment-reply {float: right; margin: 0;}
 .issuebar {width: 20%; float: left; padding: 0 1.4em;}
 .issuebar .img-and-title {}
 .issuebar .img-and-title img {display: block; margin: 0 auto; /*border: 1px solid #D9D9D9;*/ width: 9.625em; height: 9.625em;}
-.issuebar .img-and-title p {text-align: center; font-size: 0.9em; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; line-height: 1.555em;}
+.issuebar .img-and-title p {text-align: center; font-size: 0.9em; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; line-height: 1.555em; color: rgb(9, 9, 34);}
 .issuebar .img-and-title .issue-nav {margin: 0 auto 0; width: 20%; overflow: auto;}
-.issuebar .img-and-title .issue-nav .link {text-decoration: none; color: midnightblue;}
+.issuebar .img-and-title .issue-nav .link {text-decoration: none; color: rgb(28, 49, 116); font-weight: bold; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; }
+.issuebar .img-and-title .issue-nav .link:hover {text-decoration: underline;}
 .issuebar .img-and-title .issue-nav .link span {text-decoration: underline;}
 .issuebar .img-and-title .issue-nav .link.prev {float: left;}
 .issuebar .img-and-title .issue-nav .link.next {float: right;}
 .issuebar .twitter-link {border-top: 1px solid #D9D9D9; padding-top: 1.4em; margin: 1.4em 1.4em 0;}
-.issuebar .twitter-link img {width: 56%; margin: -0.5625em auto -0.5625em; display: block;}
+.issuebar .twitter-link img {width: 60%; margin: 0 auto 0; display: block;}
 
 /*** Footer ***/
 
 .footer {border-top: 1px solid #D9D9D9; padding-top: 1.4em; width: 55%; margin: 0 auto;}
 .footer p {color: #737373; font-size: 0.8125em; color: #737373; line-height: 1.69234em;}
-.footer a {color: #000; text-decoration: none;}
+.footer a {color: rgb(9, 9, 34); text-decoration: none;}
 .footer a:hover {text-decoration: underline;}
 p.copyright {color: #333; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; text-align: center;}
 p.copyright span {color: #737373;}

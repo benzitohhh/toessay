@@ -16,7 +16,7 @@
                     </div>
 
                     <div class="twitter-link">
-                        <a href="http://twitter.com/theoutsideessay"><img src="<?php bloginfo('template_directory'); ?>/images/twitter-bird-blue.png" alt="" /></a>
+                        <a href="http://twitter.com/theoutsideessay"><img src="<?php bloginfo('template_directory'); ?>/images/twitter-bird-blue-laura-obi.png" alt="" /></a>
                     </div>
 
                 </div>
