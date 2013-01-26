@@ -15,9 +15,10 @@
             <?php foreach ($ranked_posts as $post): ?>  
             <?php setup_postdata($post); ?>
             <li <?php post_class('post clear'); ?> id="post_<?php the_ID(); ?>">
-                <span class="post-author"><?php echo toessay_short_name(get_the_author()); ?>:</span>
-                <span><?php the_title(); ?></span>
-                <a href="<?php the_permalink() ?>"> Read</a>                    
+                
+                    <span class="post-author"><?php echo toessay_short_name(get_the_author()); ?>:</span>
+                    <a href="<?php the_permalink() ?>"><span><?php the_title(); ?></span></a>
+                
             </li>
             <?php endforeach; ?>
         </ul>

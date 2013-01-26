@@ -69,19 +69,21 @@
             <!-- <?php wp_nav_menu(array('menu' => 'Navigation', 'theme_location' => 'Navigation', 'depth' => 2, 'container' => 'div', 'container_class' => 'nav', 'menu_class' => 'dd', 'menu_id' => 'dd', 'walker' => new extended_walker())); ?> -->
             <div class="nav">
                 <ul id="dd" class="dd">
+                    <!-- <li class="menu-item first"> -->
+                    <!--     <a href="<?php echo toessay_cat_url(); ?>/">Home</a> -->
+                    <!-- </li> -->
                     <li class="menu-item first">
-                        <a href="<?php echo toessay_cat_url(); ?>/">Home</a>
-                    </li>
-                    <li class="menu-item">
                         <a href="<?php echo toessay_cat_url(); ?>/about/">About TOE</a>
                     </li>
                     <li class="menu-item">
                         <a href="<?php echo toessay_cat_url(); ?>/contents/">Contents</a>
                     </li>
+                    <li class="menu-item">
+                        <a href="<?php echo toessay_cat_url(); ?>/contents/">Letters</a>
+                    </li>
                     <li class="menu-item last">
                         <a href="<?php echo toessay_cat_url(); ?>/contact/">Contact</a>
                     </li>
-
                     <li class="menu_item floatright">
                         <div class="search">
                             <form method="get" id="searchform" action="<?php echo get_bloginfo('url'); ?>">
