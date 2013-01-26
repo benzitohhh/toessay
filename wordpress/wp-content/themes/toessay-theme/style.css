@@ -37,8 +37,8 @@ body {font: 100%/1.4 TimesNewRoman, "Times New Roman", Times, Baskerville, Georg
 
 .logo {width: 48%; margin: 0 auto;}
 .logo a {text-decoration: none; color: inherit;}
-.logo a h1 {float: left; font-size: 2.5em; font-weight: bold; text-transform:uppercase;}
-.logo a .tagline {float: left; margin-left: 0.6em; margin-top:6px; }
+.logo a h1 {float: left; font-size: 2.5em; font-weight: bold; text-transform:uppercase; line-height: 1.1em;}
+.logo a .tagline {float: left; margin-left: 0.6em; }
 .logo a .tagline p {padding: 0; margin: 0; line-height: 1.1; font-size: 0.8em; font-weight: bold;}
 
 .site-description {width: 290px; height: 111px; padding: 35px 30px 0; float: left; overflow: hidden;}
@@ -116,7 +116,7 @@ a.dd_hover:hover {text-decoration: none !important;}
 .list .post .post-category a {text-decoration: none;}
 .list .post .post-category a:hover {text-decoration: underline;}
 .list .post h2 {}
-.list .post h2, .list .post h2 a {color: #000; font-size: 1.0625em; font-weight: bold; text-decoration: none;}
+.list .post h2, .list .post h2 a {color: #000; font-size: 1.0625em; font-weight: bold; text-decoration: none; line-height: 1.31764em;}
 .list .post h2 a:hover {text-decoration: underline;}
 .list .post .post-meta {font-size: 100%; font-style: italic; color: #aaa9a9;}
 .list .post .post-meta span, .list .post .post-meta a {color: #000; text-decoration: none; font-size: 0.90625em; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; font-style: normal;}
