@@ -35,9 +35,9 @@ body {font: 100%/1.4 TimesNewRoman, "Times New Roman", Times, Baskerville, Georg
 
 .header {margin-bottom: 1.4em;}
 
-.logo {width: 48%; margin: 0 auto;}
+.logo {width: 57%; margin: 0 auto;}
 .logo a {text-decoration: none; color: inherit;}
-.logo a h1 {float: left; font-size: 2.5em; font-weight: bold; text-transform:uppercase; line-height: 1.1em;}
+.logo a h1 {float: left; font-size: 3em; font-weight: bold; text-transform:uppercase; line-height: 0.933333em;}
 .logo a .tagline {float: left; margin-left: 0.6em; }
 .logo a .tagline p {padding: 0; margin: 0; line-height: 1.1; font-size: 0.8em; font-weight: bold;}
 
@@ -112,6 +112,7 @@ a.dd_hover:hover {text-decoration: none !important;}
 .list .post {border-bottom: 1px solid #d9d9d9; margin-bottom: 1.4em; padding-bottom: 1.4em;}
 .list .post .thumb img {float: left; margin: 0 30px 30px 0; width: 290px; height: 290px;}
 .list .post a {color: rgb(28, 49, 116); font-weight: bold; text-decoration: none;}
+.list .post a:hover {text-decoration: underline; }
 .list .post .post-category {font-size: 100%; color: #d9d9d9; text-transform: uppercase; margin-bottom: 11px;}
 .list .post .post-category a {text-decoration: none;}
 .list .post .post-category a:hover {text-decoration: underline;}
@@ -189,7 +190,9 @@ a.dd_hover:hover {text-decoration: none !important;}
 .contact-page .contact {margin-bottom: 2.8em;}
 .contact-page .title {font-size: 2em; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; line-height: 1em; margin-bottom: 1.1em}
 .contact-page .title span {border-bottom: 1px solid; padding-bottom: 0.4em;}
-.contact-page a {display: block; text-decoration: none;}
+.contact-page a {display: block; color: rgb(28, 49, 116); font-weight: bold; text-decoration: none;}
+.contact-page a:hover {text-decoration: underline; }
+
 .contact-page p {font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; line-height: 1.4em;}
 .contact-page .space-above {margin-top: 1.4em;}
 
@@ -381,7 +384,9 @@ p#cancel-comment-reply {float: right; margin: 0;}
 .issuebar .img-and-title img {display: block; margin: 0 auto; /*border: 1px solid #D9D9D9;*/ width: 9.625em; height: 9.625em;}
 .issuebar .img-and-title p {text-align: center; font-size: 0.9em; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; line-height: 1.555em;}
 .issuebar .img-and-title .issue-nav {margin: 0 auto 0; width: 20%; overflow: auto;}
-.issuebar .img-and-title .issue-nav .link {text-decoration: none; color: midnightblue;}
+.issuebar .img-and-title .issue-nav .link { color: rgb(28, 49, 116); font-weight: bold; text-decoration: none; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;  }
+.issuebar .img-and-title .issue-nav .link:hover {text-decoration: underline; }
+
 .issuebar .img-and-title .issue-nav .link span {text-decoration: underline;}
 .issuebar .img-and-title .issue-nav .link.prev {float: left;}
 .issuebar .img-and-title .issue-nav .link.next {float: right;}
