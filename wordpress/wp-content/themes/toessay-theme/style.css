@@ -192,14 +192,14 @@ a.dd_hover:hover {text-decoration: none !important;}
 .contact-page .title span {border-bottom: 1px solid; padding-bottom: 0.4em;}
 .contact-page a {display: block; color: rgb(28, 49, 116); font-weight: bold; text-decoration: none;}
 .contact-page a:hover {text-decoration: underline; }
-
+.contact-page .section {margin-bottom: 1.4em;}
 .contact-page p {font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; line-height: 1.4em;}
-.contact-page .space-above {margin-top: 1.4em;}
 
 /*** about page ***/
 .about-page h1 {font-weight: normal; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; font-size: 2em; line-height: 1em; margin-bottom: 1.1em}
 .about-page h1 span {border-bottom: 1px solid; padding-bottom: 0.4em;}
-.about-page p {font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; }
+.about-page p {font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; margin-bottom: 1.4em;}
+.about-page p .emphasis {font-style: italic;}
 
 /*** search page ***/
 .search-page .title {margin-bottom: 2.8em;}

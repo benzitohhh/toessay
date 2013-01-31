@@ -79,10 +79,10 @@
                         <a href="<?php echo toessay_cat_url(); ?>/contents/">Contents</a>
                     </li>
                     <li class="menu-item">
-                        <a href="<?php echo toessay_cat_url(); ?>/contents/">Letters</a>
+                        <a href="<?php echo toessay_cat_url(); ?>/contact/">Contact</a>
                     </li>
                     <li class="menu-item last">
-                        <a href="<?php echo toessay_cat_url(); ?>/contact/">Contact</a>
+                        <!-- <a href="<?php echo toessay_cat_url(); ?>/contents/">Letters</a> -->
                     </li>
                     <li class="menu_item floatright">
                         <div class="search">
