@@ -867,7 +867,7 @@ function toessay_is_too_long($author, $title) {
 
 function to_essay_shorten_title($author, $title) {
     $len = strlen($author) + strlen($title);
-    $aLen = 23 - strlen($author);
+    $aLen = 30 - strlen($author);
     if ($aLen < strLen($title)) {
         return substr($title, 0, $aLen) . "..";
     }
