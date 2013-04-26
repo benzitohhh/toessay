@@ -5,7 +5,7 @@ Description: A derivative of http://wpshower.com/themes/sight/
 Author: to-essay
 Version: 1.0
 License: GNU/GPL Version 2 or later. http://www.gnu.org/licenses/gpl.html
-Copyright: 
+Copyright:
 */
 
 /*** Reset ***/
@@ -37,7 +37,8 @@ body {font: 100%/1.4 TimesNewRoman, "Times New Roman", Times, Baskerville, Georg
 
 .logo {width: 57%; margin: 0 auto;}
 .logo a {text-decoration: none; color: inherit;}
-.logo a h1 {float: left; font-size: 3em; font-weight: bold; text-transform:uppercase; line-height: 0.933333em;}
+/* .logo a h1 {float: left; font-size: 3em; font-weight: bold; text-transform:uppercase; line-height: 0.933333em;} */
+.logo a h1 {float: left; font: Baskerville; font-size: 4em; font-weight: normal; text-transform:none; line-height: 0.933333em;}
 .logo a .tagline {float: left; margin-left: 0.6em; }
 .logo a .tagline p {padding: 0; margin: 0; line-height: 1.1; font-size: 0.8em; font-weight: bold;}
 
