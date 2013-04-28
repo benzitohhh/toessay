@@ -1,5 +1,4 @@
 tinyMCEPopup.requireLangPack();
-
 var PasteWordDialog = {
 	init : function() {
 		var ed = tinyMCEPopup.editor, el = document.getElementById('iframecontainer'), ifr, doc, css, cssHTML = '';
@@ -31,7 +30,6 @@ var PasteWordDialog = {
 
 	insert : function() {
 		var h = document.getElementById('iframe').contentWindow.document.body.innerHTML;
-
 		tinyMCEPopup.editor.execCommand('mceInsertClipboardContent', false, {content : h, wordContent : true});
 		tinyMCEPopup.close();
 	},
@@ -49,3 +47,23 @@ var PasteWordDialog = {
 };
 
 tinyMCEPopup.onInit.add(PasteWordDialog.init, PasteWordDialog);
+
+// HACK to support MS-Word footnotes in "paste from word" popup
+// TODO: move this to a seperate plugin
+tinyMCEPopup.oldClose = tinyMCEPopup.close;
+tinyMCEPopup.close = function(){
+    if (typeof tinyMCEPopup.onclose == "function") {
+        tinyMCEPopup.onclose();
+    }
+    tinyMCEPopup.oldClose();
+};
+tinyMCEPopup.onclose = function(){
+    var editor = tinymce.get('content');
+    var content = editor.getContent();
+    var i = content.indexOf("<hr");
+    var preHr = content.substring(0, i);
+    var postHr = content.substring(i);
+    postHr = postHr.replace(/href=(["'])#_ftnref/g, "id=$1_ftn");
+    content = preHr + postHr;
+    editor.setContent(content);
+};
