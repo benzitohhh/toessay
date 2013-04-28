@@ -57,21 +57,12 @@
                 <div class="logo">
                     <a href="<?php bloginfo('home'); ?>">
                         <h1>the outside essay</h1>
-                        <div class="tagline">
-                            <p>essays</p>
-                            <p>from around</p>
-                            <p>the world</p>
-                        </div>
                     </a>
                 </div>
             </div>
 
-            <!-- <?php wp_nav_menu(array('menu' => 'Navigation', 'theme_location' => 'Navigation', 'depth' => 2, 'container' => 'div', 'container_class' => 'nav', 'menu_class' => 'dd', 'menu_id' => 'dd', 'walker' => new extended_walker())); ?> -->
             <div class="nav">
                 <ul id="dd" class="dd">
-                    <!-- <li class="menu-item first"> -->
-                    <!--     <a href="<?php echo toessay_cat_url(); ?>/">Home</a> -->
-                    <!-- </li> -->
                     <li class="menu-item first">
                         <a href="<?php echo toessay_cat_url(); ?>/about/">About TOE</a>
                     </li>
@@ -82,7 +73,6 @@
                         <a href="<?php echo toessay_cat_url(); ?>/contact/">Contact</a>
                     </li>
                     <li class="menu-item last">
-                        <!-- <a href="<?php echo toessay_cat_url(); ?>/contents/">Letters</a> -->
                     </li>
                     <li class="menu_item floatright">
                         <div class="search">

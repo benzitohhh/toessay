@@ -35,10 +35,9 @@ body {font: 100%/1.4 TimesNewRoman, "Times New Roman", Times, Baskerville, Georg
 
 .header {margin-bottom: 1.4em;}
 
-.logo {width: 57%; margin: 0 auto;}
 .logo a {text-decoration: none; color: inherit;}
 /* .logo a h1 {float: left; font-size: 3em; font-weight: bold; text-transform:uppercase; line-height: 0.933333em;} */
-.logo a h1 {float: left; font: Baskerville; font-size: 4em; font-weight: normal; text-transform:none; line-height: 0.933333em;}
+.logo a h1 {float: left; font-size: 4em; font-weight: normal; text-transform:none; width: 100%; text-align: center; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;}
 .logo a .tagline {float: left; margin-left: 0.6em; }
 .logo a .tagline p {padding: 0; margin: 0; line-height: 1.1; font-size: 0.8em; font-weight: bold;}
 
@@ -137,8 +136,6 @@ a.dd_hover:hover {text-decoration: none !important;}
 
 /*** more links ***/
 .morelinks {clear: both;}
-.morelinks .col {width: 47%; float: left;}
-.morelinks .col.col1 {float: right;}
 .morelinks .post {border: none; margin: 0; padding: 0; font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; }
 .morelinks a {text-decoration: none;}
 .morelinks a:hover {text-decoration: underline;}
@@ -246,7 +243,9 @@ a.dd_hover:hover {text-decoration: none !important;}
 .post-content h3 {font-size: 100%;}
 .post-content h4 {font-size: 100%;}
 .post-content h5 {font-size: 100%;}
-.post-content {color: #262626; font: 100% Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; line-height: 1.4em;}
+/* .post-content {color: #262626; font: 100% Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; line-height: 1.4em;} */
+.post-content {color: #262626; font: 100% Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; line-height: 1.4em; }
+.homepage .post-content {font-size: 0.9em; line-height: 1.56em;}
 .post-content p {margin-bottom: 0.7em;}
 .post-content ol {list-style: decimal; padding-left: 35px; margin: 15px 0;}
 .post-content ul {list-style: disc; padding-left: 35px; margin: 15px 0;}

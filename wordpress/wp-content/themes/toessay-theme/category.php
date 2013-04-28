@@ -4,8 +4,8 @@
 
 <?php if ($ranked_posts): ?>
 
-    <div id="loop" class="list clear">
-    
+    <div id="loop" class="list clear homepage">
+
         <div class="hero">
             <?php $post = $ranked_posts[0]; ?>
             <?php setup_postdata($post); ?>
@@ -40,7 +40,7 @@
             <div class="morelinks">
                 <div class="row">
                     <div class="col col0">
-                        <?php for ($i = 3; $i < 7 && $i < $N; $i++): ?>
+                        <?php for ($i = 3; $i < $N; $i++): ?>
                             <?php $post = $ranked_posts[$i]; ?>
                             <?php setup_postdata($post); ?>
                             <div <?php post_class('post clear'); ?> id="post_<?php the_ID(); ?>">
@@ -49,20 +49,10 @@
                             </div>
                         <?php endfor;?>
                     </div>
-                    <div class="col col1">
-                        <?php for ($i = 7; $i < 11 && $i < $N; $i++): ?>
-                            <?php $post = $ranked_posts[$i]; ?>
-                            <?php setup_postdata($post); ?>
-                            <div <?php post_class('post clear'); ?> id="post_<?php the_ID(); ?>">
-                                <span class="post-author"><?php echo toessay_short_name(get_the_author()); ?>: </span>
-                                <a href="<?php the_permalink() ?>"><?php echo to_essay_shorten_title(toessay_short_name(get_the_author()), get_the_title()); ?> </a>
-                            </div>
-                        <?php endfor;?>                    
-                    </div>
                 </div>
             </div>
         <?php endif;?>
-        
+
     </div>
 
 <?php endif; ?>

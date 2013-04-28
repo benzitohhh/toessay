@@ -362,7 +362,7 @@ class GetConnected extends WP_Widget {
     function update($new_instance, $old_instance) {
         $instance = $old_instance;
         $instance['title'] = strip_tags($new_instance['title']);
-        
+
         update_option('feedburner_url', $_POST['feedburner_url']);
         update_option('twitter_url', $_POST['twitter_url']);
         update_option('fb_url', $_POST['fb_url']);
@@ -373,7 +373,7 @@ class GetConnected extends WP_Widget {
         update_option('tumblr_url', $_POST['tumblr_url']);
         update_option('vimeo_url', $_POST['vimeo_url']);
         update_option('youtube_url', $_POST['youtube_url']);
-        
+
         update_option('fb_text', $_POST['fb_text']);
         update_option('flickr_text', $_POST['flickr_text']);
         update_option('behance_text', $_POST['behance_text']);
@@ -382,7 +382,7 @@ class GetConnected extends WP_Widget {
         update_option('tumblr_text', $_POST['tumblr_text']);
         update_option('vimeo_text', $_POST['vimeo_text']);
         update_option('youtube_text', $_POST['youtube_text']);
-        
+
         return $instance;
     }
 
@@ -751,24 +751,24 @@ function toessay_get_rank($post_ID) {
     $custom_fields = get_post_custom($post_ID);
     $ranks = $custom_fields['rank'];
     return $ranks ? $ranks[0] : NULL;
-}  
+}
 
-function toessay_columns_head($columns) {  
-    $columns['rank'] = 'Rank';  
+function toessay_columns_head($columns) {
+    $columns['rank'] = 'Rank';
     return $columns;
-}  
+}
 
-function toessay_columns_content($column_name, $post_ID) {  
-    if ($column_name == 'rank') {  
-        $rank = toessay_get_rank($post_ID);  
-        if ($rank) {  
-            echo $rank;  
+function toessay_columns_content($column_name, $post_ID) {
+    if ($column_name == 'rank') {
+        $rank = toessay_get_rank($post_ID);
+        if ($rank) {
+            echo $rank;
         }
-    }  
-}  
+    }
+}
 
-add_filter('manage_posts_columns', 'toessay_columns_head');  
-add_action('manage_posts_custom_column', 'toessay_columns_content', 10, 2); 
+add_filter('manage_posts_columns', 'toessay_columns_head');
+add_action('manage_posts_custom_column', 'toessay_columns_content', 10, 2);
 
 // Register the column as sortable
 function toessay_register_sortable($columns) {
@@ -807,7 +807,7 @@ function toessay_contents_rewrite_rule( $rules ) {
     global $CAT_SUBPAGES;
     $newrules = array();
     foreach ($CAT_SUBPAGES as $p) {
-        $newrules['([^/]*)/' . $p . '/?$'] = 'index.php?category_name=$matches[1]&' . $p . '=1';        
+        $newrules['([^/]*)/' . $p . '/?$'] = 'index.php?category_name=$matches[1]&' . $p . '=1';
     }
     return $newrules + $rules;
 }
@@ -835,13 +835,13 @@ function toessay_filter_category_template($template){
             $templates[] = $p . '.php';
         }
     }
-    
+
     // add more templates here if required
     return ( locate_template($templates) != false ) ? locate_template($templates) : $template;
 }
 add_filter('category_template', 'toessay_filter_category_template');
 
-function toessay_filter_wp_search($query) { 
+function toessay_filter_wp_search($query) {
     if (!$query->is_admin && $query->is_search) {
         $unpublished = toessay_cats_unpublished();
         $query->set('category__not_in', $unpublished);
@@ -867,7 +867,7 @@ function toessay_is_too_long($author, $title) {
 
 function to_essay_shorten_title($author, $title) {
     $len = strlen($author) + strlen($title);
-    $aLen = 23 - strlen($author);
+    $aLen = 50 - strlen($author);
     if ($aLen < strLen($title)) {
         return substr($title, 0, $aLen) . "..";
     }
@@ -885,7 +885,7 @@ function toessay_cats() {
         $toessay_cats = get_categories( array('orderby'=>'id', 'order'=>'desc') );
         $toessay_cats_meta = array();
         $toessay_cats_unpublished = array();
-        foreach ($toessay_cats as $cat) { 
+        foreach ($toessay_cats as $cat) {
             $meta = get_all_terms_meta($cat->term_id);
             $toessay_cats_meta[$cat->term_id] = $meta;
             if (! $meta['published'][0]) {
@@ -968,24 +968,24 @@ function toessay_setup_category_meta() {
     $cats = toessay_cats();
     $cats_meta = toessay_cats_meta();
     $idx = toessay_get_idx($cat->term_id);
-    
+
     $next = NULL;
     $prev = NULL;
     for($i = $idx - 1; $i >= 0; $i--) {
     	$tid = $cats[$i]->term_id;
     	if ($cats_meta[$tid]['published'][0]) {
     	    $next = $cats[$i];
-    		break; 
+    		break;
     	}
     }
     for($i = $idx + 1; $i < count($cats); $i++) {
     	$tid = $cats[$i]->term_id;
     	if ($cats_meta[$tid]['published'][0]) {
     		$prev = $cats[$i];
-    		break; 
+    		break;
     	}
     }
-    
+
     $arr = array();
     $arr['cat'] = $cat;
     $arr['cat_meta'] = $cats_meta[$cat->term_id];
